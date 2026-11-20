@@ -94,18 +94,23 @@ public class ProjetoService {
             ));
     }
 
-        // CADASTRAR PROJETO
-        @Transactional
-        public ProjetoEntity incluir(ProjetoEntity projeto) {
+    // CADASTRAR PROJETO
+    @Transactional
+    public ProjetoEntity incluir(ProjetoEntity projeto) {
 
-            validarProjeto(projeto);
-            aplicarRelacionamentos(projeto);
+        validarProjeto(projeto);
+        aplicarRelacionamentos(projeto);
 
-            // Define a data automaticamente no cadastro
-            projeto.setData(LocalDateTime.now());
-
-            return projetoRepository.save(projeto);
+        // Define o projeto como ativo no cadastro
+        if (projeto.getAtivo() == null) {
+            projeto.setAtivo(true);
         }
+
+        // Define a data automaticamente no cadastro
+        projeto.setData(LocalDateTime.now());
+
+        return projetoRepository.save(projeto);
+    }
 
     // EDITAR PROJETO
     @Transactional
