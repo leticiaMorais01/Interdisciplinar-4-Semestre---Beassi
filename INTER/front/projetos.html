@@ -1,0 +1,135 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Projetos</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+
+        <div>
+            <a href="index.html">
+                <img src="Imagens/logo_bege.png" alt="Logo BEASSI Arquitetura">
+            </a>
+        </div>
+
+        <nav>
+            <a href="index.html#quemsomos">INSTITUCIONAL</a>
+
+            <a href="projetos.html">PROJETOS</a>
+
+            <a href="index.html#contato">CONTATO</a>
+
+            <a href="login.html" id="link-area-usuario" hidden>
+                ÁREA DO CLIENTE
+            </a>
+
+            <a href="login.html" class="btn-login" id="link-login">
+                LOGIN
+            </a>
+
+            <a href="login.html" class="btn-sair" id="link-sair" hidden>
+                SAIR
+            </a>
+            
+        </nav>
+
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container" id="conteudo-principal">
+
+        <h1 class="titulo-tela-projetos">Nossos projetos</h1>
+
+        <p class="institucional-intro">
+            Explore alguns dos projetos desenvolvidos pela BEASSI Arquitetura.
+        </p>
+
+        <!-- BUSCA E FILTROS -->
+        <div class="projetos-toolbar" role="search" aria-label="Buscar e filtrar projetos">
+
+            <input
+                type="search"
+                id="buscaProjetos"
+                placeholder="Buscar projeto..."
+                aria-label="Buscar projeto pelo nome"
+            >
+
+            <select id="filtroTipoProjeto" aria-label="Filtrar por tipo">
+                <option value="todos">Todos os projetos</option>
+                <option value="residencial">Residenciais</option>
+                <option value="comercial">Comerciais</option>
+            </select>
+
+            <!-- FILTRO DINÂMICO DE CATEGORIAS -->
+            <div class="filtro-categorias">
+
+            <h2>Explore nossos projetos</h2>
+
+            <div class="categorias-opcoes" id="filtroCategorias">
+                <p class="categorias-vazio">
+                    Nenhuma categoria disponível.
+                </p>
+            </div>
+
+</div>
+
+        </div>
+
+        <!-- LISTA DE PROJETOS -->
+        <div class="projetos" id="projetos" data-lista-projetos><p>Carregando projetos publicados...</p></div>
+
+        <p id="nenhumProjeto" class="mensagem-vazia" hidden>
+            Nenhum projeto encontrado com esses filtros.
+        </p>
+
+    </main>
+
+    <!-- WHATSAPP -->
+ <a class="whatsapp-link" href="https://wa.me/5517996609696?text=Ol%C3%A1%2C%20gostaria%20de%20realizar%20um%20or%C3%A7amento" target="_blank"> 
+      <i class="fab fa-whatsapp oi"></i>
+  </a>
+
+    <!-- RODAPÉ -->
+    <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+
+</body>
+</html>

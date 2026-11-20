@@ -1,0 +1,364 @@
+/* GERENCIAMENTO DE FEEDBACKS - BEASSI */
+
+.feedback-admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.feedback-admin-header img {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+}
+
+.feedback-admin-header nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.feedback-admin-header nav a {
+    color: #EAE5DF;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.feedback-admin-header nav a:hover {
+    color: #fff;
+}
+
+.feedback-admin-main {
+    width: min(950px, 92%);
+    margin: 0 auto;
+    padding: 42px 0 75px;
+}
+
+.feedback-admin-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 28px;
+    color: #474E3A;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.feedback-admin-voltar:hover {
+    color: #AF7864;
+}
+
+.feedback-admin-intro {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.feedback-admin-intro > span {
+    color: #AF7864;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.feedback-admin-intro h1 {
+    margin: 12px 0;
+    color: #474E3A;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 500;
+}
+
+.feedback-admin-intro p {
+    color: #625b55;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.feedback-admin-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 38px;
+}
+
+.feedback-admin-resumo > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 20px;
+    border: 1px solid #e7ded7;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.feedback-admin-resumo strong {
+    color: #474E3A;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.feedback-admin-resumo span {
+    color: #817970;
+    font-size: 11px;
+    letter-spacing: .5px;
+}
+
+.feedback-admin-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.feedback-admin-cabecalho h2 {
+    margin: 0;
+    color: #474E3A;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.feedback-admin-filtro select {
+    min-width: 190px;
+    padding: 10px 12px;
+    border: 1px solid #d5c8bd;
+    border-radius: 7px;
+    background: #fff;
+    color: #474E3A;
+    font: inherit;
+    font-size: 12px;
+}
+
+.feedback-admin-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.feedback-admin-item {
+    padding: 23px;
+    border: 1px solid #e7ded7;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.feedback-admin-item-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.feedback-admin-autor {
+    display: block;
+    color: #474E3A;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.feedback-admin-data {
+    display: block;
+    margin-top: 5px;
+    color: #817970;
+    font-size: 11px;
+}
+
+.feedback-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+
+.feedback-status.pendente {
+    background: #f4f0eb;
+    color: #8a654f;
+}
+
+.feedback-status.aprovado {
+    background: #edf2eb;
+    color: #52694c;
+}
+
+.feedback-status.rejeitado {
+    background: #f7eeee;
+    color: #925b5b;
+}
+
+.feedback-admin-estrelas {
+    margin: 17px 0 10px;
+    color: #AF7864;
+    font-size: 19px;
+    letter-spacing: 3px;
+}
+
+.feedback-admin-mensagem {
+    margin: 0;
+    color: #625b55;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.feedback-admin-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.feedback-admin-acoes button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 38px;
+    padding: 9px 14px;
+    border: 1px solid #bba89a;
+    border-radius: 6px;
+    background: #fff;
+    color: #474E3A;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Botão aprovar */
+.feedback-admin-acoes .feedback-aprovar {
+    border: 1px solid #474E3A;
+    background: #fff;
+    color: #474E3A;
+}
+
+/* Botão rejeitar */
+.feedback-admin-acoes .feedback-rejeitar {
+    border: 1px solid #a94442;
+    background: #fff;
+    color: #a94442;
+}
+
+/* Botão selecionado */
+.feedback-admin-acoes .feedback-aprovar.selecionado {
+    background: #474E3A;
+    color: #fff;
+}
+
+.feedback-admin-acoes .feedback-rejeitar.selecionado {
+    background: #a94442;
+    color: #fff;
+}
+
+.feedback-admin-acoes button:hover:not(:disabled) {
+    opacity: .82;
+}
+
+.feedback-admin-acoes button:disabled {
+    opacity: .55;
+    cursor: not-allowed;
+}
+
+.feedback-admin-vazio {
+    padding: 28px;
+    border: 1px dashed #d5c8bd;
+    border-radius: 9px;
+    color: #817970;
+    text-align: center;
+    font-size: 13px;
+}
+
+.feedback-admin-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 16px 18px;
+    border-left: 3px solid #AF7864;
+    background: #f4f0eb;
+    color: #625b55;
+}
+
+.feedback-admin-aviso i {
+    margin-top: 3px;
+    color: #AF7864;
+}
+
+.feedback-admin-aviso p {
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.feedback-admin-footer {
+    padding: 25px 20px;
+    background: #AF7864;
+    color: #EAE5DF;
+    text-align: center;
+}
+
+.feedback-admin-footer p {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.feedback-admin-footer a {
+    color: #EAE5DF;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+@media (max-width: 650px) {
+    .feedback-admin-header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .feedback-admin-header img {
+        width: 170px;
+    }
+
+    .feedback-admin-header nav {
+        justify-content: center;
+    }
+
+    .feedback-admin-resumo {
+        gap: 8px;
+    }
+
+    .feedback-admin-resumo > div {
+        padding: 15px 8px;
+    }
+
+    .feedback-admin-resumo strong {
+        font-size: 21px;
+    }
+
+    .feedback-admin-resumo span {
+        font-size: 10px;
+    }
+
+    .feedback-admin-cabecalho {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .feedback-admin-filtro select {
+        width: 100%;
+    }
+
+    .feedback-admin-item {
+        padding: 18px;
+    }
+
+    .feedback-admin-acoes {
+        flex-direction: column;
+    }
+
+    .feedback-admin-acoes button {
+        width: 100%;
+    }
+}

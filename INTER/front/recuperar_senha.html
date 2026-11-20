@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar senha | BEASSI Arquitetura</title>
+  <link rel="icon" href="Imagens/mini_logo_verde.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  <link rel="stylesheet" href="Css/login.css">
+  <link rel="stylesheet" href="Css/recuperacao_senha.css">
+</head>
+<body>
+  <main class="recuperacao-card">
+    <a href="login.html" class="recuperacao-voltar"><i class="fa-solid fa-arrow-left"></i> Voltar ao login</a>
+    <img src="Imagens/logo_verde.png" alt="BEASSI Arquitetura" class="recuperacao-logo">
+    <span class="recuperacao-etiqueta">ACESSO À CONTA</span>
+    <h1>Esqueceu sua senha?</h1>
+    <p>Informe o e-mail associado à sua conta. Se ele estiver cadastrado, você receberá as instruções para criar uma nova senha.</p>
+    <form id="formSolicitarRecuperacao">
+      <label for="emailRecuperacao">E-mail</label>
+      <input id="emailRecuperacao" name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required>
+      <button type="submit">ENVIAR LINK DE RECUPERAÇÃO</button>
+    </form>
+    <p id="mensagemRecuperacao" class="mensagem-recuperacao" role="status" aria-live="polite"></p>
+  </main>
+  <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/recuperacao_senha.js"></script>
+  <script src="Js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+</body>
+</html>

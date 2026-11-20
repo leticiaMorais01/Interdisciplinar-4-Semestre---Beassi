@@ -1,0 +1,747 @@
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #474E3A, #5c644c);
+    font-family: "Montserrat", sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 30px 20px;
+}
+
+/* =========================================
+   CONTAINER PRINCIPAL
+========================================= */
+
+.container-cadastro {
+    background-color: rgba(234, 229, 223, 0.98);
+
+    width: 100%;
+    max-width: 680px;
+
+    padding: 45px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.20);
+
+    margin: 15px auto;
+}
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.container-cadastro h1 {
+    text-align: center;
+    color: #474E3A;
+
+    margin-bottom: 42px;
+
+    position: relative;
+
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.container-cadastro h1::after {
+    content: "";
+
+    width: 65px;
+    height: 3px;
+
+    background-color: #AF7864;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    bottom: -16px;
+
+    border-radius: 5px;
+}
+
+/* =========================================
+   FORMULÁRIO E LABELS
+========================================= */
+
+.form-cadastro label {
+    display: block;
+
+    margin-top: 21px;
+    margin-bottom: 9px;
+
+    color: #474E3A;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-cadastro input:not([type="checkbox"]):not([type="radio"]),
+.form-cadastro select,
+.form-cadastro textarea {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 1px solid #d4b3a3;
+    border-radius: 10px;
+
+    background-color: #faf8f5;
+
+    color: #474E3A;
+
+    outline: none;
+
+    transition: 0.25s;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 13px;
+}
+
+.form-cadastro textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+}
+
+.form-cadastro input::placeholder,
+.form-cadastro textarea::placeholder {
+    color: #999087;
+}
+
+.form-cadastro input:focus,
+.form-cadastro select:focus,
+.form-cadastro textarea:focus {
+    border-color: #AF7864;
+
+    box-shadow: 0 0 0 3px rgba(175, 120, 100, 0.13);
+}
+
+.form-cadastro input:hover,
+.form-cadastro select:hover,
+.form-cadastro textarea:hover {
+    border-color: #AF7864;
+}
+
+/* =========================================
+   AVISO DO CLIENTE
+========================================= */
+
+.aviso-cliente-projeto {
+    margin-top: 8px;
+
+    color: #625b55;
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* =========================================
+   CATEGORIAS
+========================================= */
+
+.categorias-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.categoria-item {
+    display: inline-flex;
+    margin: 0;
+}
+
+/* Checkbox interno das categorias */
+.categoria-item input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.categoria-item span {
+    display: inline-block;
+
+    padding: 11px 17px;
+
+    border-radius: 30px;
+
+    border: 1px solid #cda998;
+
+    color: #474E3A;
+    background-color: #faf8f5;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    user-select: none;
+}
+
+.categoria-item span:hover {
+    background-color: rgba(175, 120, 100, 0.12);
+    border-color: #AF7864;
+}
+
+.categoria-item input:checked + span {
+    background-color: #AF7864;
+
+    color: #fff;
+
+    border-color: #AF7864;
+}
+
+.categoria-item input:focus-visible + span {
+    outline: 3px solid #474E3A;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   PUBLICAÇÃO NO PORTFÓLIO
+========================================= */
+
+.form-cadastro label.campo-publicacao {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 25px 0 18px;
+
+    color: #474E3A;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.form-cadastro .campo-publicacao input[type="checkbox"] {
+    appearance: auto;
+
+    width: 17px;
+    height: 17px;
+
+    margin: 0;
+
+    accent-color: #474E3A;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+}
+
+/* =========================================
+   SELEÇÃO DE IMAGENS
+========================================= */
+
+.form-cadastro input[type="file"] {
+    display: block;
+
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px dashed #cda998;
+    border-radius: 10px;
+
+    background-color: #f7f3ef;
+
+    color: #625b55;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.form-cadastro input[type="file"]::file-selector-button {
+    padding: 9px 13px;
+
+    margin-right: 12px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: #474E3A;
+
+    color: #fff;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.form-cadastro input[type="file"]::file-selector-button:hover {
+    background-color: #AF7864;
+}
+
+/* Pré-visualização de imagens */
+
+.form-cadastro .preview-imagem {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 12px;
+
+    overflow: hidden;
+}
+
+.form-cadastro .preview-imagem img,
+.preview-nova-imagem img {
+    display: block;
+
+    width: min(100%, 420px);
+    max-height: 280px;
+
+    object-fit: contain;
+
+    margin: 12px auto;
+
+    border-radius: 10px;
+    border: 1px solid #d4b3a3;
+
+    background-color: #f5f1ed;
+}
+
+.preview-nova-imagem {
+    max-width: 460px;
+    margin: 14px auto;
+}
+
+/* =========================================
+   BOTÃO CADASTRAR
+========================================= */
+
+.btn-cadastrar {
+    width: 100%;
+
+    margin-top: 32px;
+
+    background-color: #AF7864;
+
+    color: #fff;
+
+    border: none;
+
+    padding: 15px;
+
+    border-radius: 11px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 0.3px;
+}
+
+.btn-cadastrar:hover {
+    background-color: #986653;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 14px rgba(175, 120, 100, 0.2);
+}
+
+.btn-cadastrar:active {
+    transform: scale(0.99);
+}
+
+/* =========================================
+   MENSAGEM DE SUCESSO
+========================================= */
+
+.sucesso-cadastro-projeto {
+    text-align: center;
+    padding: 25px 15px;
+}
+
+.sucesso-icone {
+    width: 55px;
+    height: 55px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #e5eee3;
+    color: #526347;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.sucesso-cadastro-projeto h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #414a36;
+}
+
+.sucesso-cadastro-projeto p {
+    margin-bottom: 22px;
+    color: #777;
+}
+
+.sucesso-acoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.sucesso-acoes a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 13px 20px;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.2s;
+}
+
+.btn-listagem {
+    background: #4b523d;
+    color: white;
+}
+
+.btn-editar-projeto {
+    background: #b47b66;
+    color: white;
+}
+
+.sucesso-acoes a:hover {
+    opacity: 0.85;
+}
+
+/* =========================================
+   ACESSIBILIDADE
+========================================= */
+
+:focus-visible {
+    outline: 3px solid #AF7864;
+    outline-offset: 3px;
+}
+
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 16px;
+
+    z-index: 3000;
+
+    display: block;
+    width: auto;
+
+    margin: 0;
+    padding: 12px 16px;
+
+    border-radius: 8px;
+
+    background: #474E3A;
+    color: #fff;
+
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+.accessibility-toggle {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+
+    z-index: 5000;
+
+    display: grid;
+    place-items: center;
+
+    width: 54px;
+    height: 54px;
+
+    margin: 0;
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: #474E3A;
+    color: #fff;
+
+    font-size: 23px;
+
+    box-shadow: 0 5px 18px #0003;
+
+    cursor: pointer;
+}
+
+.accessibility-toggle:hover {
+    background: #AF7864;
+    transform: none;
+}
+
+.accessibility-panel {
+    display: none;
+
+    position: fixed;
+    right: 22px;
+    bottom: 88px;
+
+    z-index: 5001;
+
+    width: min(320px, calc(100vw - 32px));
+    max-height: calc(100vh - 112px);
+
+    overflow-y: auto;
+
+    padding: 20px;
+
+    border: 1px solid #ded5cd;
+    border-radius: 16px;
+
+    background: #fff;
+    color: #474E3A;
+
+    box-shadow: 0 12px 36px #0003;
+}
+
+.accessibility-panel.aberto {
+    display: block;
+}
+
+.accessibility-panel h2 {
+    margin: 0 0 8px;
+    color: #474E3A;
+    font-size: 19px;
+    text-align: left;
+}
+
+.accessibility-panel p {
+    margin: 0 0 12px;
+    color: #625b55;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.accessibility-panel button,
+.accessibility-panel select {
+    display: block;
+
+    width: 100%;
+    min-height: 42px;
+
+    margin: 8px 0 0;
+    padding: 10px 12px;
+
+    border: 1px solid #d5c8bd;
+    border-radius: 8px;
+
+    background: #f7f4f1;
+    color: #474E3A;
+
+    font: inherit;
+    font-size: 13px;
+
+    text-align: left;
+    cursor: pointer;
+}
+
+.accessibility-panel button:hover {
+    background: #eee6df;
+    transform: none;
+}
+
+.accessibility-panel .accessibility-close {
+    background: #474E3A;
+    color: #fff;
+    text-align: center;
+}
+
+.accessibility-panel label {
+    display: block;
+
+    width: auto;
+
+    margin: 12px 0 0;
+
+    color: #474E3A;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.accessibility-panel select {
+    background: #fff;
+}
+
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+    border: 0;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .container-cadastro {
+        padding: 28px 20px;
+        margin: 8px auto;
+        border-radius: 17px;
+    }
+
+    .container-cadastro h1 {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+
+    .form-cadastro label {
+        font-size: 13px;
+    }
+
+    .categoria-item span {
+        font-size: 11px;
+        padding: 10px 14px;
+    }
+
+    .form-cadastro label.campo-publicacao {
+        align-items: flex-start;
+    }
+
+    .accessibility-toggle {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .accessibility-panel {
+        right: 14px;
+        bottom: 78px;
+        max-height: calc(100vh - 94px);
+    }
+}
+
+
+.lista-preview-imagens {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.item-preview-imagem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.remover-imagem-individual {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #8f1717;
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.remover-imagem-individual:hover {
+    background-color: #6f1111;
+}
+
+
+.remover-nova-imagem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    margin-top: 15px;
+    padding: 10px 18px;
+
+    background-color: #8F1717;
+    color: #FFF8EA;
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.remover-nova-imagem:hover {
+    background-color: #701111;
+    transform: translateY(-2px);
+}
+
+.remover-nova-imagem:active {
+    transform: translateY(0);
+}
+
+.remover-nova-imagem:focus-visible {
+    outline: 2px solid #8F1717;
+    outline-offset: 3px;
+}
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha área | BEASSI Arquitetura</title>
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/meus_projetos.css">
+</head>
+<body>
+    <header class="cliente-header">
+        <a href="index.html" aria-label="Voltar ao site BEASSI">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+        <nav aria-label="Navegação da área do cliente">
+            <a href="index.html">VISUALIZAR SITE</a>
+            <a href="login.html" class="cliente-sair">SAIR</a>
+        </nav>
+    </header>
+
+    <main class="cliente-main" id="conteudo-principal">
+        <a class="cliente-voltar" href="index.html">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Voltar ao site
+        </a>
+
+        <section class="cliente-apresentacao" aria-labelledby="titulo-cliente">
+            <span class="cliente-identificacao">ÁREA DO CLIENTE</span>
+            <h1 id="titulo-cliente">Acompanhe seu projeto</h1>
+            <p>Consulte as informações e acompanhe as etapas do seu projeto com a BEASSI Arquitetura.</p>
+        </section>
+
+        <section class="cliente-perfil" aria-label="Informações do cliente">
+            <div class="cliente-avatar" aria-hidden="true">
+                <i class="fa-regular fa-user"></i>
+            </div>
+            <div>
+                <span class="cliente-label">MINHA CONTA</span>
+
+                <h2 id="nomeCliente">Carregando...</h2>
+                <p id="emailCliente">Carregando informações da conta...</p>
+
+            </div>
+            <a class="cliente-editar-perfil" href="editar_perfil.html">
+                <button
+                    type="button"
+                    class="cliente-inativar-conta"
+                    id="btnInativarConta"
+                >
+                    <i class="fa-solid fa-user-slash" aria-hidden="true"></i>
+                    Inativar minha conta
+                </button>
+                <i class="fa-regular fa-pen-to-square" aria-hidden="true"></i> Editar meu perfil
+            </a>
+        </section>
+
+        
+        <section class="cliente-projetos" aria-labelledby="titulo-projetos-cliente">
+
+            <div class="cliente-secao-cabecalho">
+
+                <div>
+                    <span class="cliente-label">ACOMPANHAMENTO</span>
+                    <h2 id="titulo-projetos-cliente">Meus projetos</h2>
+                </div>
+
+                <span class="cliente-contador" id="quantidadeProjetos">
+                    1 projeto
+                </span>
+
+            </div>
+
+            <div class="cliente-lista-projetos" id="listaMeusProjetos"><p>Carregando seus projetos...</p></div>
+
+        </section>
+
+        <!-- HISTÓRICO DE AVALIAÇÕES -->
+        <section class="cliente-avaliacoes" aria-labelledby="titulo-avaliacoes">
+
+            <div class="cliente-secao-cabecalho">
+                <div>
+                    <span class="cliente-label">HISTÓRICO</span>
+                    <h2 id="titulo-avaliacoes">Minhas avaliações</h2>
+                </div>
+            </div>
+
+            <div id="listaMinhasAvaliacoes">
+                <p>Carregando suas avaliações...</p>
+            </div>
+
+        </section>
+
+
+        <section class="cliente-convite-feedback">
+            <div>
+                <span class="cliente-label">SUA EXPERIÊNCIA IMPORTA</span>
+                <h2>Quer compartilhar sua opinião?</h2>
+                <p>Clientes com projetos vinculados à conta poderão enviar uma avaliação para análise.</p>
+            </div>
+            <a href="avaliar_projeto.html" class="cliente-contato">AVALIAR EXPERIÊNCIA</a>
+        </section>
+
+    </main>
+
+    
+
+    <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+    <script src="Js/meus_projetos.js"></script>
+</body>
+</html>

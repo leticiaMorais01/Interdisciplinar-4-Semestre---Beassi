@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto | BEASSI Arquitetura</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Css/p_individuais.css">
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="icon" href="Imagens/mini_logo_verde.png">
+</head>
+<body>
+  <header>
+    <div><a href="index.html"><img src="Imagens/logo_bege.png" alt="Logo BEASSI Arquitetura"></a></div>
+    <nav>
+      <a href="index.html#quemsomos">INSTITUCIONAL</a>
+
+      <a href="projetos.html">PROJETOS</a>
+      
+      <a href="index.html#contato">CONTATO</a>
+      
+      <a href="login.html" id="link-area-usuario" hidden>
+          ÁREA DO CLIENTE
+      </a>
+
+      <a href="login.html" class="btn-login" id="link-login">
+          LOGIN
+      </a>
+
+      <a href="login.html" class="btn-sair" id="link-sair" hidden>
+          SAIR
+      </a>
+    </nav>
+  </header>
+
+  <main class="container pagina-projeto" id="conteudo-principal">
+  
+
+    <h1 class="nome-projeto" id="tituloProjeto">Projeto C&G</h1>
+
+    <section class="galeria" aria-label="Galeria de imagens do projeto">
+      <img id="imagemPrincipal" src="Imagens/Carol1.png" alt="Imagem principal do projeto C&G" class="imagem-principal">
+      <div class="miniaturas" id="miniaturasProjeto" aria-label="Selecionar imagem do projeto">
+        <button type="button" class="miniatura ativa" aria-label="Ver imagem 1">
+          <img src="Imagens/Carol1.png" alt="Ambiente integrado do projeto C&G">
+        </button>
+        <button type="button" class="miniatura" aria-label="Ver imagem 2">
+          <img src="Imagens/Carol2.png" alt="Outro ambiente do projeto C&G">
+        </button>
+        <button type="button" class="miniatura" aria-label="Ver imagem 3">
+          <img src="Imagens/Carol3.png" alt="Detalhe do projeto C&G">
+        </button>
+      </div>
+    </section>
+
+    <section class="informacoes-projeto" aria-labelledby="sobreProjetoTitulo">
+      <div class="descricao-projeto">
+        <span class="sobretitulo">BEASSI ARQUITETURA</span>
+        <h2 id="sobreProjetoTitulo">Sobre o projeto</h2>
+        <p id="descricaoProjeto">Projeto desenvolvido para integrar conforto, funcionalidade e estética.</p>
+      </div>
+
+      <aside class="dados-projeto" aria-label="Informações do projeto">
+        <h2>Informações</h2>
+        <div class="dado-projeto">
+          <span>Tipo</span>
+          <strong id="tipoProjeto">Residencial</strong>
+        </div>
+        <div class="dado-projeto">
+          <span>Classificação</span>
+          <strong id="classificacaoProjeto">Apartamento</strong>
+        </div>
+        <div class="dado-projeto categorias-dado">
+          <span>Categorias</span>
+          <div id="categoriasProjeto" class="etiquetas-categorias">
+            <span class="etiqueta-categoria">Interiores</span>
+            <span class="etiqueta-categoria">Iluminação</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <a class="whatsapp-link" href="https://wa.me/5511953751644?text=Ol%C3%A1%2C%20gostaria%20de%20realizar%20um%20or%C3%A7amento" target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp">
+    <i class="fab fa-whatsapp oi"></i>
+  </a>
+
+  <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+  <script src="Js/projeto_individual.js"></script>
+</body>
+</html>

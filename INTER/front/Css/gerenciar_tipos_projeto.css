@@ -1,0 +1,606 @@
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    background: #f4f1ed;
+    font-family: "Montserrat", sans-serif;
+    color: #474E3A;
+}
+
+/* =========================================
+   CABEÇALHO PADRÃO BEASSI
+========================================= */
+
+.tipos-header {
+    width: 100%;
+    min-height: 76px;
+    padding: 0 35px;
+
+    background-color: #AF7864;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tipos-logo {
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.tipos-nav {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.tipos-nav a {
+    color: #fff;
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    transition: 0.2s;
+}
+
+.tipos-nav a:hover {
+    opacity: 0.75;
+}
+
+/* =========================================
+   CONTEÚDO PRINCIPAL
+========================================= */
+
+.tipos-main {
+    width: min(100% - 40px, 1050px);
+    margin: 45px auto;
+}
+
+/* =========================================
+   INTRODUÇÃO
+========================================= */
+
+.tipos-intro {
+    margin-bottom: 30px;
+}
+
+.tipos-subtitulo {
+    color: #AF7864;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.tipos-intro h1 {
+    margin: 10px 0;
+    font-size: 30px;
+    font-weight: 600;
+    color: #474E3A;
+}
+
+.tipos-intro p {
+    color: #77716b;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* =========================================
+   ABAS
+========================================= */
+
+.tipos-abas {
+    display: flex;
+    gap: 10px;
+
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e1d8d0;
+
+    margin-bottom: 25px;
+}
+
+.aba-tipo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 13px 22px;
+
+    border: 1px solid #ddd2c9;
+    border-radius: 9px 9px 0 0;
+
+    background: #eee9e3;
+    color: #625b55;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.aba-tipo:hover {
+    background: #e6ded6;
+}
+
+.aba-tipo.ativa {
+    background: #474E3A;
+    border-color: #474E3A;
+    color: #fff;
+}
+
+/* =========================================
+   CONTROLE DAS ABAS
+========================================= */
+
+.conteudo-tipo {
+    display: none;
+}
+
+.conteudo-tipo.ativo {
+    display: block;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* =========================================
+   CARDS DE RESUMO
+========================================= */
+
+.tipo-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+
+    margin-bottom: 28px;
+}
+
+.resumo-card {
+    padding: 22px;
+
+    background: #fff;
+
+    border: 1px solid #e7ded6;
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.035);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.resumo-card span {
+    color: #77716b;
+    font-size: 12px;
+}
+
+.resumo-card strong {
+    color: #474E3A;
+    font-size: 27px;
+    font-weight: 600;
+}
+
+/* =========================================
+   FORMULÁRIO
+========================================= */
+
+.tipo-form-card,
+.tipo-lista-card {
+    padding: 28px;
+
+    background: #fff;
+
+    border: 1px solid #e7ded6;
+    border-radius: 14px;
+
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+
+    margin-bottom: 25px;
+}
+
+.secao-titulo h2,
+.tipo-lista-topo h2 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #474E3A;
+    margin-bottom: 7px;
+}
+
+.secao-titulo p,
+.tipo-lista-topo p {
+    color: #817a73;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.campo-tipo {
+    margin-top: 24px;
+}
+
+.campo-tipo label {
+    display: block;
+    margin-bottom: 9px;
+
+    color: #474E3A;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.campo-tipo input {
+    width: 100%;
+    padding: 13px 14px;
+
+    border: 1px solid #d9c9bd;
+    border-radius: 8px;
+
+    background: #faf9f7;
+    color: #474E3A;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+    transition: 0.2s;
+}
+
+.campo-tipo input:focus {
+    border-color: #AF7864;
+    box-shadow: 0 0 0 3px rgba(175, 120, 100, 0.12);
+}
+
+/* =========================================
+   BOTÕES DO FORMULÁRIO
+========================================= */
+
+.tipo-form-acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-salvar,
+.btn-cancelar {
+    padding: 12px 19px;
+
+    border: none;
+    border-radius: 8px;
+
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-salvar {
+    background: #474E3A;
+    color: #fff;
+}
+
+.btn-salvar:hover {
+    background: #5c644c;
+}
+
+.btn-cancelar {
+    background: #eee8e2;
+    color: #625b55;
+}
+
+.btn-cancelar:hover {
+    background: #e4d9d0;
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* =========================================
+   LISTAGEM
+========================================= */
+
+.tipo-lista-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-atualizar {
+    padding: 10px 14px;
+
+    border: 1px solid #d9c9bd;
+    border-radius: 8px;
+
+    background: #fff;
+    color: #474E3A;
+
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-atualizar:hover {
+    background: #f5f0eb;
+}
+
+.tipo-filtros {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin: 25px 0 18px;
+}
+
+.tipo-filtros label {
+    font-size: 12px;
+    color: #625b55;
+}
+
+.tipo-filtros select {
+    padding: 9px 12px;
+
+    border: 1px solid #d9c9bd;
+    border-radius: 7px;
+
+    background: #faf9f7;
+    color: #474E3A;
+
+    font-family: inherit;
+    font-size: 11px;
+
+    outline: none;
+}
+
+/* =========================================
+   ITENS DA LISTAGEM
+========================================= */
+
+.lista-tipos {
+    display: flex;
+    flex-direction: column;
+}
+
+.tipo-item-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding: 17px 4px;
+
+    border-bottom: 1px solid #eee8e2;
+}
+
+.tipo-item-admin:last-child {
+    border-bottom: none;
+}
+
+.tipo-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.tipo-info strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: #474E3A;
+    overflow-wrap: anywhere;
+}
+
+.tipo-status {
+    padding: 6px 10px;
+    border-radius: 20px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.tipo-status.ativa {
+    background: #e8efe5;
+    color: #526b48;
+}
+
+.tipo-status.inativa {
+    background: #f5e8e4;
+    color: #a45e4b;
+}
+
+/* =========================================
+   AÇÕES DA LISTAGEM
+========================================= */
+
+.tipo-acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    flex-shrink: 0;
+}
+
+.tipo-acoes button {
+    padding: 8px 11px;
+
+    border: none;
+    border-radius: 7px;
+
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-editar-tipo {
+    background: #eee8e2;
+    color: #625b55;
+}
+
+.btn-editar-tipo:hover {
+    background: #e2d7cd;
+}
+
+.btn-desativar-tipo {
+    background: #f5e8e4;
+    color: #a45e4b;
+}
+
+.btn-desativar-tipo:hover {
+    background: #eed8d1;
+}
+
+.btn-reativar-tipo {
+    background: #e8efe5;
+    color: #526b48;
+}
+
+.btn-reativar-tipo:hover {
+    background: #dce8d7;
+}
+
+/* =========================================
+   ESTADOS DA LISTAGEM
+========================================= */
+
+.estado-lista {
+    padding: 25px 10px;
+    text-align: center;
+    color: #888078;
+    font-size: 12px;
+}
+
+/* =========================================
+   ACESSIBILIDADE
+========================================= */
+
+.aba-tipo:focus-visible,
+.tipo-acoes button:focus-visible,
+.tipo-form-acoes button:focus-visible,
+.btn-atualizar:focus-visible {
+    outline: 3px solid #AF7864;
+    outline-offset: 3px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .tipos-main {
+        margin: 30px auto;
+    }
+
+    .tipo-resumo {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .resumo-card {
+        padding: 17px;
+    }
+
+    .resumo-card strong {
+        font-size: 23px;
+    }
+
+    .tipo-form-card,
+    .tipo-lista-card {
+        padding: 21px 17px;
+    }
+
+    .tipos-intro h1 {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .tipos-header {
+        padding: 18px 20px;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .tipos-logo {
+        font-size: 14px;
+    }
+
+    .tipos-nav {
+        gap: 15px;
+    }
+
+    .tipos-nav a {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .tipos-abas {
+        gap: 7px;
+    }
+
+    .aba-tipo {
+        flex: 1;
+        padding: 12px 8px;
+        font-size: 11px;
+    }
+
+    .tipo-item-admin {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .tipo-acoes {
+        width: 100%;
+    }
+
+    .tipo-acoes button {
+        flex: 1;
+    }
+
+    .tipo-lista-topo {
+        align-items: flex-start;
+    }
+
+    .btn-atualizar {
+        width: 100%;
+    }
+
+    .tipo-form-acoes button {
+        width: 100%;
+    }
+}

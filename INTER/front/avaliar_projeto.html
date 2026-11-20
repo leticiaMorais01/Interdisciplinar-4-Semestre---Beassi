@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar projeto | BEASSI Arquitetura</title>
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/feedback_cliente.css">
+</head>
+<body>
+    <header class="feedback-header">
+        <a href="index.html" aria-label="Voltar ao site BEASSI">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+        <nav>
+            <a href="meus_projetos.html">MINHA ÁREA</a>
+            <a href="login.html">SAIR</a>
+        </nav>
+    </header>
+
+    <main class="feedback-main" id="conteudo-principal">
+        <a href="meus_projetos.html" class="feedback-voltar">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Voltar aos meus projetos
+        </a>
+
+        <section class="feedback-introducao">
+            <span class="feedback-identificacao">SUA OPINIÃO</span>
+            <h1>Conte como foi sua experiência</h1>
+            <p>Seu feedback ajuda a BEASSI Arquitetura a aprimorar cada etapa do atendimento e dos projetos.</p>
+        </section>
+
+        <form class="feedback-formulario" id="formFeedbackCliente">
+            <div class="feedback-campo">
+                <label for="projetoFeedback">Projeto relacionado</label>
+                <select id="projetoFeedback" name="projetoId" data-carregar-projetos-cliente required>
+                    <option value="">Selecione um projeto vinculado à sua conta</option>
+                    <!-- As opções serão carregadas pela API com os projetos associados ao cliente. -->
+                </select>
+                <small>Somente projetos associados à sua conta poderão ser avaliados.</small>
+            </div>
+
+            <fieldset class="feedback-campo feedback-nota">
+                <legend>Como você avalia sua experiência?</legend>
+
+                <div class="feedback-estrelas" role="radiogroup" aria-label="Nota de 1 a 5 estrelas">
+
+                    <label>
+                        <input type="radio" name="nota" value="5" required>
+                        <span aria-hidden="true">★</span>
+                        <span class="sr-only">5 estrelas</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="nota" value="4">
+                        <span aria-hidden="true">★</span>
+                        <span class="sr-only">4 estrelas</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="nota" value="3">
+                        <span aria-hidden="true">★</span>
+                        <span class="sr-only">3 estrelas</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="nota" value="2">
+                        <span aria-hidden="true">★</span>
+                        <span class="sr-only">2 estrelas</span>
+                    </label>
+
+                    <label>
+                        <input type="radio" name="nota" value="1">
+                        <span aria-hidden="true">★</span>
+                        <span class="sr-only">1 estrela</span>
+                    </label>
+
+                </div>
+
+                <small>Selecione de 1 a 5 estrelas.</small>
+            </fieldset>
+
+            <div class="feedback-campo">
+                <label for="mensagemFeedback">Seu comentário</label>
+                <textarea id="mensagemFeedback" name="mensagem" rows="6" maxlength="1000" placeholder="Escreva aqui como foi sua experiência com a BEASSI..." required></textarea>
+                <small>Máximo de 1.000 caracteres.</small>
+            </div>
+
+            <div class="feedback-campo feedback-publicacao">
+                <span class="feedback-legenda">Como deseja aparecer no site?</span>
+                <label class="feedback-opcao">
+                    <input type="radio" name="exibirNome" value="true" checked>
+                    Exibir meu nome
+                </label>
+                <label class="feedback-opcao">
+                    <input type="radio" name="exibirNome" value="false">
+                    Enviar anonimamente (Cliente BEASSI)
+                </label>
+            </div>
+
+            <div class="feedback-aviso">
+                <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                <p>Seu feedback será enviado para análise. Ele só aparecerá no site público após a aprovação do administrador. A data será registrada automaticamente pelo sistema.</p>
+            </div>
+
+            <p class="feedback-retorno" id="retornoFeedback" role="status" aria-live="polite"></p>
+
+            <div class="feedback-acoes">
+                <a href="meus_projetos.html" class="feedback-cancelar">CANCELAR</a>
+                <button type="submit" class="feedback-enviar">ENVIAR FEEDBACK</button>
+            </div>
+        </form>
+    </main>
+
+     <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+    <script src="Js/feedback_cliente.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editar Projeto | BEASSI Arquitetura</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Css/editar_projeto.css">
+</head>
+
+<body>
+
+    <main class="container-cadastro">
+
+        <h1>Editar Projeto</h1>
+
+        <form class="form-cadastro" id="formEditarProjeto">
+
+            <!-- TÍTULO -->
+            <label for="titulo">Título do projeto</label>
+            <input
+                type="text"
+                id="titulo"
+                name="titulo"
+                required
+            >
+
+            <!-- DESCRIÇÃO -->
+            <label for="descricao">Descrição</label>
+            <textarea
+                id="descricao"
+                name="descricao"
+                rows="4"
+                required
+            ></textarea>
+
+            <!-- TIPO DE PROJETO -->
+            <label for="tipoProjeto">Tipo de projeto</label>
+
+            <select id="tipoProjeto" name="tipoProjeto" required>
+                <option value="">Carregando tipos...</option>
+                <option value="RESIDENCIAL">Residencial</option>
+                <option value="COMERCIAL">Comercial</option>
+            </select>
+
+            <!-- CLIENTE -->
+            <label for="clienteProjeto">Cliente responsável (opcional)</label>
+
+            <select
+                id="clienteProjeto"
+                name="clienteId"
+                data-carregar-clientes
+            >
+                <option value="">Carregando clientes...</option>
+            </select>
+
+            <!-- CLASSIFICAÇÃO -->
+            <label for="subtipoProjeto">Classificação do projeto</label>
+
+            <select
+                id="subtipoProjeto"
+                name="subtipoProjeto"
+                data-carregar-subtipos
+                required
+            >
+                <option value="">Selecione primeiro o tipo de projeto</option>
+            </select>
+
+            <!-- CATEGORIAS -->
+            <label>Categorias</label>
+
+            <div
+                class="categorias-container"
+                id="categoriasContainer"
+                data-carregar-categorias
+            >
+                <p>Carregando categorias...</p>
+            </div>
+
+            <!-- PUBLICAÇÃO -->
+            <label class="campo-publicacao">
+                <input
+                    type="checkbox"
+                    name="statusPublicacao"
+                    id="statusPublicacao"
+                    value="true"
+                    checked
+                >
+                Exibir este projeto no portfólio público
+            </label>
+
+            <!-- IMAGENS ATUAIS -->
+            <label>Imagens atuais do projeto</label>
+
+            <div class="preview-imagem">
+                <img
+                    src=""
+                    alt="Imagem atual do projeto"
+                    hidden
+                >
+            </div>
+
+            <p class="texto-ajuda">
+                As imagens atuais serão mantidas, a menos que você decida removê-las.
+                Você também pode adicionar novas imagens ao projeto.
+            </p>
+
+            <!-- NOVAS IMAGENS -->
+            <label for="imagem">Adicionar novas imagens</label>
+
+            <input
+                type="file"
+                id="imagem"
+                name="imagem"
+                accept="image/*"
+                multiple
+            >
+
+            <!-- ACOMPANHAMENTO DO PROJETO -->
+            <section
+                class="progresso-admin"
+                aria-labelledby="tituloProgresso"
+            >
+
+                <h2 id="tituloProgresso">Acompanhamento do projeto</h2>
+
+                <p class="progresso-descricao">
+                    Selecione a etapa atual. O percentual de conclusão será definido automaticamente.
+                </p>
+
+                <label for="etapaProjeto">Etapa atual</label>
+
+                <select id="etapaProjeto" name="etapaProjeto">
+
+                    <option value="nao-iniciado">Não iniciado</option>
+                    <option value="medicao">Medição</option>
+                    <option value="desenvolvimento">Desenvolvimento do projeto</option>
+                    <option value="apresentacao">Apresentação ao cliente</option>
+                    <option value="revisao">Revisão</option>
+                    <option value="executivo">Projeto executivo</option>
+                    <option value="concluido">Concluído</option>
+
+                </select>
+
+                <div class="progresso-cabecalho">
+                    <span>Percentual de conclusão</span>
+                    <strong id="valorProgresso">17%</strong>
+                </div>
+
+                <div
+                    class="progresso-barra"
+                    role="progressbar"
+                    aria-label="Progresso do projeto"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                    aria-valuenow="17"
+                    id="barraProgresso"
+                >
+                    <div
+                        class="progresso-preenchimento"
+                        id="preenchimentoProgresso"
+                    ></div>
+                </div>
+
+                <p
+                    class="progresso-ajuda"
+                    id="textoProgresso"
+                    aria-live="polite"
+                >
+                    Prévia: projeto em andamento.
+                </p>
+
+                <p
+                    class="progresso-salvamento"
+                    id="mensagemSalvamentoProgresso"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+            </section>
+
+            <!-- SALVAR -->
+            <button type="submit" class="btn-salvar">
+                Salvar alterações
+            </button>
+
+        </form>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+    <script src="Js/categorias_projeto.js"></script>
+    <script src="Js/progresso_projeto.js"></script>
+
+</body>
+</html>

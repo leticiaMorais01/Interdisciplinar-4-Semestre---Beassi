@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerenciar Tipos de Projeto | BEASSI Arquitetura</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/gerenciar_tipos_projeto.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO PADRÃO BEASSI -->
+    <header class="tipos-header">
+
+        <a href="index.html" class="tipos-logo">
+            BEASSI ARQUITETURA
+        </a>
+
+        <nav class="tipos-nav">
+
+            <a href="painel_admin.html">
+                PAINEL ADMINISTRATIVO
+            </a>
+
+            <a href="#" id="btnSair">
+                SAIR
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main class="tipos-main">
+
+        <!-- INTRODUÇÃO -->
+        <section class="tipos-intro">
+
+            <span class="tipos-subtitulo">CONFIGURAÇÕES DO PORTFÓLIO</span>
+
+            <h1>Gerenciar tipos de projeto</h1>
+
+            <p>
+                Cadastre, edite e organize os tipos específicos
+                utilizados na classificação dos projetos.
+            </p>
+
+        </section>
+
+        <!-- ABAS -->
+        <nav class="tipos-abas" aria-label="Tipos de projeto">
+
+            <button
+                type="button"
+                class="aba-tipo ativa"
+                data-tipo="residencial"
+                aria-selected="true">
+
+                <i class="fa-solid fa-house"></i>
+                Residencial
+
+            </button>
+
+            <button
+                type="button"
+                class="aba-tipo"
+                data-tipo="comercial"
+                aria-selected="false">
+
+                <i class="fa-solid fa-building"></i>
+                Comercial
+
+            </button>
+
+        </nav>
+
+        <!-- =====================================
+             CONTEÚDO RESIDENCIAL
+        ====================================== -->
+
+        <section class="conteudo-tipo ativo" id="conteudoResidencial">
+
+            <!-- INDICADORES -->
+            <div class="tipo-resumo">
+
+                <article class="resumo-card">
+                    <span>Total de tipos</span>
+                    <strong id="totalResidencial">0</strong>
+                </article>
+
+                <article class="resumo-card">
+                    <span>Tipos ativos</span>
+                    <strong id="ativasResidencial">0</strong>
+                </article>
+
+                <article class="resumo-card">
+                    <span>Tipos inativos</span>
+                    <strong id="inativasResidencial">0</strong>
+                </article>
+
+            </div>
+
+            <!-- FORMULÁRIO -->
+            <section class="tipo-form-card">
+
+                <div class="secao-titulo">
+
+                    <h2 id="tituloResidencial">Novo tipo residencial</h2>
+
+                    <p>
+                        Informe o nome do tipo de projeto residencial.
+                    </p>
+
+                </div>
+
+                <form id="formResidencial">
+
+                    <input type="hidden" id="idResidencial">
+
+                    <div class="campo-tipo">
+
+                        <label for="nomeResidencial">Nome do tipo</label>
+
+                        <input
+                            type="text"
+                            id="nomeResidencial"
+                            maxlength="50"
+                            placeholder="Ex.: Casa"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="tipo-form-acoes">
+
+                        <button type="submit" class="btn-salvar" id="btnSalvarResidencial">
+                            <i class="fa-solid fa-plus"></i>
+                            Cadastrar tipo
+                        </button>
+
+                        <button type="button" class="btn-cancelar" id="btnCancelarResidencial" hidden>
+                            Cancelar edição
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- LISTAGEM -->
+            <section class="tipo-lista-card">
+
+                <div class="tipo-lista-topo">
+
+                    <div>
+                        <h2>Tipos residenciais cadastrados</h2>
+                        <p>Gerencie os tipos de projetos residenciais.</p>
+                    </div>
+
+                    <button type="button" class="btn-atualizar" id="atualizarResidencial">
+                        <i class="fa-solid fa-rotate"></i>
+                        Atualizar
+                    </button>
+
+                </div>
+
+                <div class="tipo-filtros">
+
+                    <label for="filtroResidencial">Exibir:</label>
+
+                    <select id="filtroResidencial">
+                        <option value="todas">Todas</option>
+                        <option value="ativas">Ativas</option>
+                        <option value="inativas">Inativas</option>
+                    </select>
+
+                </div>
+
+                <div id="listaResidencial" class="lista-tipos">
+                    <p class="estado-lista">Carregando tipos residenciais...</p>
+                </div>
+
+                <p id="vazioResidencial" class="estado-lista" hidden>
+                    Nenhum tipo residencial encontrado.
+                </p>
+
+            </section>
+
+        </section>
+
+        <!-- =====================================
+             CONTEÚDO COMERCIAL
+        ====================================== -->
+
+        <section class="conteudo-tipo" id="conteudoComercial" hidden>
+
+            <!-- INDICADORES -->
+            <div class="tipo-resumo">
+
+                <article class="resumo-card">
+                    <span>Total de tipos</span>
+                    <strong id="totalComercial">0</strong>
+                </article>
+
+                <article class="resumo-card">
+                    <span>Tipos ativos</span>
+                    <strong id="ativasComercial">0</strong>
+                </article>
+
+                <article class="resumo-card">
+                    <span>Tipos inativos</span>
+                    <strong id="inativasComercial">0</strong>
+                </article>
+
+            </div>
+
+            <!-- FORMULÁRIO -->
+            <section class="tipo-form-card">
+
+                <div class="secao-titulo">
+
+                    <h2 id="tituloComercial">Novo tipo comercial</h2>
+
+                    <p>
+                        Informe o nome do tipo de projeto comercial.
+                    </p>
+
+                </div>
+
+                <form id="formComercial">
+
+                    <input type="hidden" id="idComercial">
+
+                    <div class="campo-tipo">
+
+                        <label for="nomeComercial">Nome do tipo</label>
+
+                        <input
+                            type="text"
+                            id="nomeComercial"
+                            maxlength="50"
+                            placeholder="Ex.: Clínica"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="tipo-form-acoes">
+
+                        <button type="submit" class="btn-salvar" id="btnSalvarComercial">
+                            <i class="fa-solid fa-plus"></i>
+                            Cadastrar tipo
+                        </button>
+
+                        <button type="button" class="btn-cancelar" id="btnCancelarComercial" hidden>
+                            Cancelar edição
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+            <!-- LISTAGEM -->
+            <section class="tipo-lista-card">
+
+                <div class="tipo-lista-topo">
+
+                    <div>
+                        <h2>Tipos comerciais cadastrados</h2>
+                        <p>Gerencie os tipos de projetos comerciais.</p>
+                    </div>
+
+                    <button type="button" class="btn-atualizar" id="atualizarComercial">
+                        <i class="fa-solid fa-rotate"></i>
+                        Atualizar
+                    </button>
+
+                </div>
+
+                <div class="tipo-filtros">
+
+                    <label for="filtroComercial">Exibir:</label>
+
+                    <select id="filtroComercial">
+                        <option value="todas">Todas</option>
+                        <option value="ativas">Ativas</option>
+                        <option value="inativas">Inativas</option>
+                    </select>
+
+                </div>
+
+                <div id="listaComercial" class="lista-tipos">
+                    <p class="estado-lista">Carregando tipos comerciais...</p>
+                </div>
+
+                <p id="vazioComercial" class="estado-lista" hidden>
+                    Nenhum tipo comercial encontrado.
+                </p>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/gerenciar_tipos_projeto.js"></script>
+    <script src="Js/script.js"></script>
+
+</body>
+</html>

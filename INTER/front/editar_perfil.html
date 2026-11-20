@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu perfil | BEASSI Arquitetura</title>
+
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/perfil_cliente.css">
+</head>
+
+<body>
+
+    <header class="perfil-header">
+
+        <a href="index.html">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+
+        <nav>
+            <a href="meus_projetos.html">MINHA ÁREA</a>
+            <a href="login.html">SAIR</a>
+        </nav>
+
+    </header>
+
+    <main class="perfil-main" id="conteudo-principal">
+
+        <a class="perfil-voltar" href="meus_projetos.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar à minha área
+        </a>
+
+        <section class="perfil-intro">
+
+            <span>MINHA CONTA</span>
+
+            <h1>Meu perfil</h1>
+
+            <p>Mantenha seus dados cadastrais atualizados.</p>
+
+        </section>
+
+        <form class="perfil-form" id="formEditarCliente">
+
+            <label>
+                Nome completo
+                <input name="nome" type="text" placeholder="Seu nome completo" required>
+            </label>
+
+            <label>
+                E-mail
+                <input name="email" type="email" placeholder="seuemail@exemplo.com" required>
+            </label>
+
+            <label>
+                CPF
+                <input name="cpf" type="text" inputmode="numeric" required readonly>
+            </label>
+
+            <label>
+                Telefone
+                <input name="telefone" type="tel" placeholder="(00) 00000-0000" required maxlength="15" inputmode="tel">
+            </label>
+
+
+            <div class="perfil-form-separador">
+
+                <h2>Segurança</h2>
+
+                <p>
+                    Para alterar sua senha, solicite uma redefinição segura. Não informe sua senha atual nesta página de demonstração.
+                </p>
+
+                <a href="login.html">Ir para a opção de acesso / redefinição de senha</a>
+
+            </div>
+
+            <div class="perfil-form-acoes">
+
+                <a href="meus_projetos.html">Cancelar</a>
+
+                <button type="submit">Salvar alterações</button>
+
+            </div>
+
+
+        </form>
+
+    </main>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/formularios_perfil.js"></script>
+    <script src="Js/script.js"></script>
+
+</body>
+
+</html>

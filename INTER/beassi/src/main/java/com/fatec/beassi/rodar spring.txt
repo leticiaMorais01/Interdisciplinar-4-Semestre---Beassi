@@ -1,0 +1,13 @@
+cd .\INTER\beassi
+.\mvnw.cmd spring-boot:run
+
+Bruna ^
+
+mvn spring-boot:run
+
+mvn clean
+
+{
+  "email": "admin@beassi.com",
+  "senha": "Beassi@123"
+}

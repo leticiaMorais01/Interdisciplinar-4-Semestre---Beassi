@@ -1,0 +1,411 @@
+/* GERENCIAMENTO DE CLIENTES - BEASSI */
+
+.clientes-admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.clientes-admin-header img {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+}
+
+.clientes-admin-header nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.clientes-admin-header nav a {
+    color: #EAE5DF;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.clientes-admin-header nav a:hover {
+    color: #fff;
+}
+
+.clientes-admin-main {
+    width: min(1050px, 92%);
+    margin: 0 auto;
+    padding: 42px 0 75px;
+}
+
+.clientes-admin-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 28px;
+    color: #474E3A;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.clientes-admin-voltar:hover {
+    color: #AF7864;
+}
+
+.clientes-admin-intro {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.clientes-admin-intro > span {
+    color: #AF7864;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.clientes-admin-intro h1 {
+    margin: 12px 0;
+    color: #474E3A;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 500;
+}
+
+.clientes-admin-intro p {
+    color: #625b55;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.clientes-admin-resumo {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 38px;
+}
+
+.clientes-admin-resumo > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 20px;
+    border: 1px solid #e7ded7;
+    border-radius: 10px;
+    background: #fff;
+    text-align: center;
+}
+
+.clientes-admin-resumo strong {
+    color: #474E3A;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.clientes-admin-resumo span {
+    color: #817970;
+    font-size: 11px;
+    letter-spacing: .3px;
+}
+
+.clientes-admin-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.clientes-admin-cabecalho h2 {
+    margin: 0;
+    color: #474E3A;
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.clientes-admin-filtros {
+    display: flex;
+    gap: 10px;
+}
+
+.clientes-admin-busca {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 220px;
+    padding: 0 11px;
+    border: 1px solid #d5c8bd;
+    border-radius: 7px;
+    background: #fff;
+    color: #817970;
+}
+
+.clientes-admin-busca input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
+    border: 0;
+    outline: none;
+    color: #474E3A;
+    font: inherit;
+    font-size: 12px;
+}
+
+.clientes-admin-filtros select {
+    min-width: 160px;
+    padding: 10px 12px;
+    border: 1px solid #d5c8bd;
+    border-radius: 7px;
+    background: #fff;
+    color: #474E3A;
+    font: inherit;
+    font-size: 12px;
+}
+
+.clientes-admin-tabela-wrap {
+    overflow-x: auto;
+    border: 1px solid #e7ded7;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.clientes-admin-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.clientes-admin-tabela th {
+    padding: 15px 17px;
+    background: #f4f0eb;
+    color: #625b55;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+}
+
+.clientes-admin-tabela td {
+    padding: 17px;
+    border-top: 1px solid #eee7e1;
+    color: #625b55;
+    font-size: 12px;
+}
+
+.clientes-admin-tabela td strong {
+    display: block;
+    color: #474E3A;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.clientes-admin-tabela td small {
+    display: block;
+    margin-top: 5px;
+    color: #92877e;
+    font-size: 10px;
+}
+
+.cliente-situacao {
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.cliente-situacao.com-projeto {
+    background: #edf2eb;
+    color: #52694c;
+}
+
+.cliente-situacao.sem-projeto {
+    background: #f4f0eb;
+    color: #8a654f;
+}
+
+.clientes-admin-vazio {
+    padding: 28px;
+    border: 1px dashed #d5c8bd;
+    border-radius: 9px;
+    color: #817970;
+    text-align: center;
+    font-size: 13px;
+}
+
+.clientes-admin-aviso {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 16px 18px;
+    border-left: 3px solid #AF7864;
+    background: #f4f0eb;
+    color: #625b55;
+}
+
+.clientes-admin-aviso i {
+    margin-top: 3px;
+    color: #AF7864;
+}
+
+.clientes-admin-aviso p {
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+.clientes-admin-footer {
+    padding: 25px 20px;
+    background: #AF7864;
+    color: #EAE5DF;
+    text-align: center;
+}
+
+.clientes-admin-footer p {
+    margin-bottom: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.clientes-admin-footer a {
+    color: #EAE5DF;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .clientes-admin-header {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .clientes-admin-header img {
+        width: 170px;
+    }
+
+    .clientes-admin-header nav {
+        justify-content: center;
+    }
+
+    .clientes-admin-resumo {
+        gap: 8px;
+    }
+
+    .clientes-admin-resumo > div {
+        padding: 15px 8px;
+    }
+
+    .clientes-admin-resumo strong {
+        font-size: 21px;
+    }
+
+    .clientes-admin-resumo span {
+        font-size: 10px;
+    }
+
+    .clientes-admin-cabecalho {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .clientes-admin-filtros {
+        flex-direction: column;
+    }
+
+    .clientes-admin-busca,
+    .clientes-admin-filtros select {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+}
+
+
+/* Ações por cliente */
+
+.cliente-acoes {
+    white-space: nowrap;
+}
+
+.cliente-acoes a {
+    display: inline-block;
+    margin-right: 12px;
+    color: #474E3A;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.cliente-acoes a:hover {
+    color: #AF7864;
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   STATUS DO CADASTRO
+======================================== */
+
+.conta-ativa,
+.conta-inativa {
+    display: inline-block;
+    padding: 6px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.conta-ativa {
+    background: #edf2eb;
+    color: #52694c;
+}
+
+.conta-inativa {
+    background: #f9e9e7;
+    color: #a13d35;
+}
+
+/* ========================================
+   BOTÃO REATIVAR CLIENTE
+======================================== */
+
+.btn-reativar-cliente {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 6px 10px;
+    border: 1px solid #AF7864;
+    border-radius: 5px;
+    background: #fff;
+    color: #AF7864;
+    font-family: inherit;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease;
+}
+
+.btn-reativar-cliente:hover {
+    background: #AF7864;
+    color: #fff;
+}
+
+.btn-reativar-cliente:focus-visible {
+    outline: 3px solid #AF7864;
+    outline-offset: 3px;
+}
+
+.btn-reativar-cliente:disabled {
+    opacity: .6;
+    cursor: not-allowed;
+}
+
+/* Correção do tamanho do botão Reativar */
+.clientes-admin-tabela .cliente-acoes .btn-reativar-cliente {
+    width: auto;
+    min-width: 0;
+    max-width: max-content;
+    box-sizing: border-box;
+    margin-left: 8px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    text-align: center;
+}

@@ -1,0 +1,497 @@
+CREATE DATABASE bdarquitetura;
+GO
+
+USE bdarquitetura;
+GO
+
+-----------------------
+-- ANOTAÇÕES:
+-----------------------
+-- Sigla	Significado	Utilização
+--   DF	        Default		Define um valor padrão
+--   UQ	        Unique	        Impede valores duplicados
+--   CK		Check		Define uma condição que os dados precisam respeitar
+
+-- TABELA: TIPO_COMERCIAL
+
+CREATE TABLE TIPO_COMERCIAL
+(
+    ID_TIPO_COMERCIAL INT NOT NULL PRIMARY KEY IDENTITY,
+
+    TIPO VARCHAR(50) NOT NULL
+)
+GO
+
+
+-- TABELA: TIPO_RESIDENCIAL
+
+CREATE TABLE TIPO_RESIDENCIAL
+(
+    ID_TIPO_RESIDENCIAL INT NOT NULL PRIMARY KEY IDENTITY,
+
+    TIPO VARCHAR(50) NOT NULL
+)
+GO
+
+
+-- TABELA: USUARIO
+
+CREATE TABLE USUARIO
+(
+    ID_USUARIO INT IDENTITY PRIMARY KEY,
+
+    EMAIL VARCHAR(50) NOT NULL CONSTRAINT UQ_USUARIO_EMAIL UNIQUE,
+
+    SENHA VARCHAR(255) NOT NULL
+)
+GO
+
+
+-- TABELA: CLIENTE
+
+CREATE TABLE CLIENTE
+(
+    ID_USUARIO INT NOT NULL PRIMARY KEY REFERENCES USUARIO(ID_USUARIO),
+
+    NOME VARCHAR(50) NOT NULL,
+
+    CPF VARCHAR(14) NOT NULL CONSTRAINT UQ_CLIENTE_CPF UNIQUE,
+
+    TELEFONE VARCHAR(15) NOT NULL,
+
+    STATUS BIT NOT NULL CONSTRAINT DF_CLIENTE_STATUS DEFAULT 1
+)
+GO
+
+
+-- TABELA: ADMINISTRADOR
+
+CREATE TABLE ADMINISTRADOR
+(
+    ID_USUARIO INT NOT NULL PRIMARY KEY REFERENCES USUARIO(ID_USUARIO),
+
+    REGISTRO_CAU VARCHAR(20) NOT NULL CONSTRAINT UQ_ADMINISTRADOR_REGISTRO_CAU UNIQUE
+)
+GO
+
+
+-- TABELA: RECUPERACAO DE SENHA
+
+CREATE TABLE RECUPERACAO_SENHA (
+    ID_RECUPERACAO INT NOT NULL PRIMARY KEY IDENTITY,
+
+    USUARIO_ID INT NOT NULL REFERENCES USUARIO(ID_USUARIO),
+
+    TOKEN VARCHAR(255) NOT NULL UNIQUE,
+
+    DATA_CRIACAO DATETIME2 NOT NULL DEFAULT SYSDATETIME(),
+
+    DATA_EXPIRACAO DATETIME2 NOT NULL,
+
+    UTILIZADO BIT NOT NULL DEFAULT 0,
+
+    CONSTRAINT CK_RECUPERACAO_EXPIRACAO
+        CHECK (DATA_EXPIRACAO > DATA_CRIACAO)
+)
+
+
+-- TABELA: PROJETO
+
+CREATE TABLE PROJETO
+(
+    ID_PROJETO INT NOT NULL PRIMARY KEY IDENTITY,
+
+    TITULO VARCHAR(30) NOT NULL,
+
+    DESCRICAO VARCHAR(1000) NOT NULL,
+
+    DATA DATETIME NULL,
+
+    STATUS_PUBLICACAO BIT NOT NULL CONSTRAINT DF_PROJETO_PUBLICACAO DEFAULT 1,
+
+    CLIENTE_ID INT NULL REFERENCES CLIENTE(ID_USUARIO),
+
+    ADMINISTRADOR_ID INT NOT NULL REFERENCES ADMINISTRADOR(ID_USUARIO),
+
+    TIPO_COMERCIAL_ID INT NULL REFERENCES TIPO_COMERCIAL(ID_TIPO_COMERCIAL),
+
+    TIPO_RESIDENCIAL_ID INT NULL REFERENCES TIPO_RESIDENCIAL(ID_TIPO_RESIDENCIAL),
+
+    ETAPA_ATUAL VARCHAR(30) NOT NULL CONSTRAINT DF_PROJETO_ETAPA DEFAULT 'Não iniciado',
+
+    PORCENTAGEM_CONCLUSAO INT NOT NULL CONSTRAINT DF_PROJETO_PROGRESSO DEFAULT 0,
+
+    CONSTRAINT CK_PROJETO_TIPO CHECK
+    (
+        (TIPO_COMERCIAL_ID IS NOT NULL
+         AND TIPO_RESIDENCIAL_ID IS NULL)
+
+        OR
+
+        (TIPO_COMERCIAL_ID IS NULL
+         AND TIPO_RESIDENCIAL_ID IS NOT NULL)
+    ),
+
+    CONSTRAINT CK_PROJETO_ETAPA CHECK
+    (
+        ETAPA_ATUAL IN
+        (
+            'Não iniciado',
+            'Medição',
+            'Desenvolvimento do projeto',
+            'Apresentação ao cliente',
+            'Revisões',
+            'Projeto Executivo',
+            'Concluído'
+        )
+    ),
+
+    CONSTRAINT CK_PROJETO_PROGRESSO CHECK
+    (
+        (ETAPA_ATUAL = 'Não iniciado'
+            AND PORCENTAGEM_CONCLUSAO = 0)
+
+        OR (ETAPA_ATUAL = 'Medição'
+            AND PORCENTAGEM_CONCLUSAO = 17)
+
+        OR (ETAPA_ATUAL = 'Desenvolvimento do projeto'
+            AND PORCENTAGEM_CONCLUSAO = 33)
+
+        OR (ETAPA_ATUAL = 'Apresentação ao cliente'
+            AND PORCENTAGEM_CONCLUSAO = 50)
+
+        OR (ETAPA_ATUAL = 'Revisões'
+            AND PORCENTAGEM_CONCLUSAO = 67)
+
+        OR (ETAPA_ATUAL = 'Projeto Executivo'
+            AND PORCENTAGEM_CONCLUSAO = 83)
+
+        OR (ETAPA_ATUAL = 'Concluído'
+            AND PORCENTAGEM_CONCLUSAO = 100)
+    )
+)
+GO
+
+
+-- TABELA: IMAGEM
+
+CREATE TABLE IMAGEM
+(
+    ID_IMAGEM INT NOT NULL PRIMARY KEY IDENTITY,
+
+    CAMINHO VARCHAR(500) NOT NULL,
+
+    TEXTO_ALTERNATIVO VARCHAR(255) NOT NULL,
+
+    PROJETO_ID INT NOT NULL REFERENCES PROJETO(ID_PROJETO)
+)
+GO
+
+
+-- TABELA: CATEGORIA
+
+CREATE TABLE CATEGORIA
+(
+    ID_CATEGORIA INT NOT NULL PRIMARY KEY IDENTITY,
+
+    CATEGORIA VARCHAR(50) NOT NULL CONSTRAINT UQ_CATEGORIA_NOME UNIQUE
+)
+GO
+
+
+-- TABELA: PROJETO_CATEGORIA
+
+CREATE TABLE PROJETO_CATEGORIA
+(
+    PROJETO_ID INT NOT NULL REFERENCES PROJETO(ID_PROJETO),
+
+    CATEGORIA_ID INT NOT NULL REFERENCES CATEGORIA(ID_CATEGORIA),
+
+    PRIMARY KEY (PROJETO_ID, CATEGORIA_ID)
+)
+GO
+
+
+-- TABELA: FEEDBACK
+
+CREATE TABLE FEEDBACK
+(
+    ID_FEEDBACK INT NOT NULL PRIMARY KEY IDENTITY,
+
+    CLIENTE_ID INT NOT NULL REFERENCES CLIENTE(ID_USUARIO),
+
+    PROJETO_ID INT NOT NULL REFERENCES PROJETO(ID_PROJETO),
+
+    NOTA INT NOT NULL,
+
+    COMENTARIO VARCHAR(1000) NOT NULL,
+
+    DATA_ENVIO DATETIME2 NOT NULL CONSTRAINT DF_FEEDBACK_DATA DEFAULT SYSDATETIME(),
+
+    STATUS_APROVACAO VARCHAR(15) NOT NULL CONSTRAINT DF_FEEDBACK_STATUS DEFAULT 'PENDENTE',
+
+    EXIBIR_NOME BIT NOT NULL CONSTRAINT DF_FEEDBACK_EXIBIR_NOME DEFAULT 0,
+    -- 1 = exibir nome / 0 = anônimo.
+
+    CONSTRAINT CK_FEEDBACK_NOTA
+        CHECK (NOTA BETWEEN 1 AND 5),
+
+    CONSTRAINT CK_FEEDBACK_STATUS
+        CHECK
+        (
+            STATUS_APROVACAO IN
+            ('PENDENTE', 'APROVADO', 'REJEITADO')
+        )
+)
+GO
+
+
+-- INSERTS
+
+
+-- 1. INSERTS: TIPO_COMERCIAL
+
+INSERT INTO TIPO_COMERCIAL (TIPO) VALUES
+('Salão de beleza'),
+('Escritório'),
+('Clínica'),
+('Loja'),
+('Restaurante'),
+('Consultório'),
+('Academia'),
+('Cafeteria'),
+('Hotel'),
+('Espaço comercial')
+GO
+
+-- 2. INSERTS: TIPO_RESIDENCIAL
+
+INSERT INTO TIPO_RESIDENCIAL (TIPO) VALUES
+('Casa'),
+('Apartamento'),
+('Chácara'),
+('Sítio'),
+('Sobrado'),
+('Casa de campo'),
+('Cobertura'),
+('Casa geminada'),
+('Condomínio residencial'),
+('Kitnet')
+GO
+
+
+-- 3. INSERTS: USUARIO
+-- Senha padrão: Beassi@123 //para todos
+
+INSERT INTO USUARIO (EMAIL, SENHA) VALUES
+('admin@beassi.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('ana@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('bruno@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('carla@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('diego@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('eduarda@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('felipe@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('gabriela@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('henrique@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('isabela@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu'),
+('joao@email.com', '$2a$10$.k/duBK1RoErEROnkyRi/OzvzYFbz5XxlEL9flL5ThEYPnPnT4hDu');
+GO
+
+
+-- 4. INSERTS: CLIENTE
+
+INSERT INTO CLIENTE
+(ID_USUARIO, NOME, CPF, TELEFONE, STATUS) VALUES
+(2, 'Ana Souza', '126.855.092-24', '(17) 99111-1111', 1),
+(3, 'Bruno Lima', '210.053.353-38', '(17) 99222-2222', 1),
+(4, 'Carla Mendes', '219.540.831-65', '(17) 99333-3333', 1),
+(5, 'Diego Santos', '249.827.706-46', '(17) 99444-4444', 1),
+(6, 'Eduarda Oliveira', '339.670.711-70', '(17) 99555-5555', 1),
+(7, 'Felipe Costa', '362.950.628-30', '(17) 99666-6666', 1),
+(8, 'Gabriela Martins', '395.310.485-33', '(17) 99777-7777', 1),
+(9, 'Henrique Alves', '786.579.303-07', '(17) 99888-8888', 1),
+(10, 'Isabela Rocha', '890.779.946-61', '(17) 99999-9999', 1),
+(11, 'João Ferreira', '896.233.790-80', '(17) 99000-0000', 1);
+GO
+
+
+-- 5. INSERTS: ADMINISTRADOR
+
+INSERT INTO ADMINISTRADOR
+(ID_USUARIO, REGISTRO_CAU)
+VALUES
+(1, 'CAU-SP-000001')
+GO
+
+
+--- 6. INSERTS: PROJETO
+-- STATUS_PUBLICACAO: 1 = publicado / 0 = não publicado
+
+INSERT INTO PROJETO
+(
+    TITULO,
+    DESCRICAO,
+    DATA,
+    STATUS_PUBLICACAO,
+    CLIENTE_ID,
+    ADMINISTRADOR_ID,
+    TIPO_COMERCIAL_ID,
+    TIPO_RESIDENCIAL_ID,
+    ETAPA_ATUAL,
+    PORCENTAGEM_CONCLUSAO
+)
+VALUES
+(
+    'Casa Moderna',
+    'Projeto residencial com ambientes integrados e fachada contemporânea.',
+    '20260110',
+    1, 2, 1, NULL, 1, 'Concluído', 100
+),
+(
+    'Clinica Vida',
+    'Projeto comercial de clínica médica com ambientes funcionais.',
+    '20260115',
+    1, 3, 1, 3, NULL, 'Projeto Executivo', 83
+),
+(
+    'Apartamento Urbano',
+    'Projeto de interiores para apartamento com conceito minimalista.',
+    '20260201',
+    1, 4, 1, NULL, 2, 'Revisões', 67
+),
+(
+    'Salao Elegance',
+    'Projeto de salão de beleza com espaços modernos e acolhedores.',
+    '20260210',
+    1, 5, 1, 1, NULL, 'Desenvolvimento do projeto', 33
+),
+(
+    'Chacara Verde',
+    'Projeto de chácara com integração entre área interna e externa.',
+    '20260220',
+    1, 6, 1, NULL, 3, 'Apresentação ao cliente', 50
+),
+(
+    'Escritorio Criativo',
+    'Projeto de escritório corporativo com espaços colaborativos.',
+    '20260301',
+    1, 7, 1, 2, NULL, 'Medição', 17
+),
+(
+    'Casa de Campo',
+    'Projeto residencial com madeira, iluminação natural e paisagismo.',
+    '20260310',
+    1, 8, 1, NULL, 6, 'Não iniciado', 0
+),
+(
+    'Restaurante Sabor',
+    'Projeto comercial de restaurante com ambientes integrados.',
+    '20260315',
+    1, 9, 1, 5, NULL, 'Concluído', 100
+),
+(
+    'Cobertura Premium',
+    'Projeto de cobertura residencial com varanda e área gourmet.',
+    '20260401',
+    0, 10, 1, NULL, 7, 'Revisões', 67
+),
+(
+    'Loja Conceito',
+    'Projeto de loja com exposição de produtos e identidade visual.',
+    '20260410',
+    1, 11, 1, 4, NULL, 'Desenvolvimento do projeto', 33
+)
+GO
+
+-- 7. INSERTS: IMAGEM
+
+INSERT INTO IMAGEM
+(CAMINHO, TEXTO_ALTERNATIVO, PROJETO_ID)
+VALUES
+('/imagens/casa-moderna-01.jpg', 'Fachada de casa moderna', 12),
+('/imagens/clinica-vida-01.jpg', 'Recepção da clínica', 11),
+('/imagens/apartamento-urbano-01.jpg', 'Sala de apartamento moderno', 3),
+('/imagens/salao-elegance-01.jpg', 'Interior do salão de beleza', 4),
+('/imagens/chacara-verde-01.jpg', 'Área externa da chácara', 5),
+('/imagens/escritorio-criativo-01.jpg', 'Ambiente de trabalho do escritório', 6),
+('/imagens/casa-campo-01.jpg', 'Fachada da casa de campo', 7),
+('/imagens/restaurante-sabor-01.jpg', 'Salão principal do restaurante', 8),
+('/imagens/cobertura-premium-01.jpg', 'Varanda da cobertura', 9),
+('/imagens/loja-conceito-01.jpg', 'Interior da loja conceito', 10)
+GO
+
+
+
+
+-- 8. INSERTS: CATEGORIA
+
+INSERT INTO CATEGORIA (CATEGORIA) VALUES
+('Projeto arquitetônico'),
+('Projeto de interiores'),
+('Fachada'),
+('Paisagismo'),
+('Iluminação'),
+('Decoração'),
+('Reforma'),
+('Design de ambientes'),
+('Área gourmet'),
+('Projeto comercial')
+GO
+
+
+-- 9. INSERTS: PROJETO_CATEGORIA
+
+INSERT INTO PROJETO_CATEGORIA
+(PROJETO_ID, CATEGORIA_ID)
+VALUES
+(11, 1),
+(12, 10),
+(3, 2),
+(4, 8),
+(5, 4),
+(6, 10),
+(7, 3),
+(8, 9),
+(9, 5),
+(10, 7)
+GO
+
+
+-- 10. INSERTS: FEEDBACK
+
+INSERT INTO FEEDBACK
+(
+    CLIENTE_ID,
+    PROJETO_ID,
+    NOTA,
+    COMENTARIO,
+    DATA_ENVIO,
+    STATUS_APROVACAO,
+    EXIBIR_NOME
+)
+VALUES
+(2, 11, 5, 'Fiquei muito satisfeita com o resultado do projeto.', '2026-04-01', 'APROVADO', 1),
+(3, 12, 4, 'O projeto ficou muito bonito e funcional.', '2026-04-02', 'APROVADO', 1),
+(4, 3, 5, 'Excelente aproveitamento dos espaços.', '2026-04-03', 'APROVADO', 0),
+(5, 4, 4, 'Gostei muito da proposta apresentada.', '2026-04-04', 'PENDENTE', 1),
+(6, 5, 5, 'O paisagismo ficou maravilhoso.', '2026-04-05', 'APROVADO', 1),
+(7, 6, 3, 'O projeto atendeu parcialmente às expectativas.', '2026-04-06', 'PENDENTE', 0),
+(8, 7, 5, 'Ótimo atendimento e excelente projeto.', '2026-04-07', 'APROVADO', 1),
+(9, 8, 4, 'O ambiente ficou muito agradável.', '2026-04-08', 'REJEITADO', 1),
+(10, 9, 5, 'Adorei a proposta da cobertura.', '2026-04-09', 'PENDENTE', 0),
+(11, 10, 4, 'A loja ficou moderna e bem organizada.', '2026-04-10', 'APROVADO', 1)
+GO
+
+
+
+SELECT * FROM TIPO_COMERCIAL;
+SELECT * FROM TIPO_RESIDENCIAL;
+SELECT * FROM USUARIO;
+SELECT * FROM CLIENTE;
+SELECT * FROM ADMINISTRADOR;
+SELECT * FROM PROJETO;
+SELECT * FROM IMAGEM;
+SELECT * FROM CATEGORIA;
+SELECT * FROM PROJETO_CATEGORIA;
+SELECT * FROM FEEDBACK;
+

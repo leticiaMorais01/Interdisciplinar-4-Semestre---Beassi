@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Detalhes do cliente | BEASSI Arquitetura</title>
+
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/perfil_cliente.css">
+</head>
+
+<body>
+
+    <header class="perfil-header">
+
+        <a href="index.html">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+
+        <nav>
+            <a href="painel_admin.html">PAINEL ADMINISTRATIVO</a>
+            <a href="login.html">SAIR</a>
+        </nav>
+
+    </header>
+
+    <main class="perfil-main" id="conteudo-principal">
+
+        <a class="perfil-voltar" href="gerenciar_clientes.html">
+            <i class="fa-solid fa-arrow-left"></i>
+            Voltar aos clientes
+        </a>
+
+        <section class="perfil-intro">
+
+            <span>ÁREA ADMINISTRATIVA</span>
+
+            <h1>Detalhes do cliente</h1>
+
+            <p>
+                Consulte os dados cadastrais e os projetos associados a esta conta.
+            </p>
+
+        </section>
+
+        <section class="perfil-card">
+
+            <div class="perfil-card-topo">
+
+                <div class="perfil-avatar">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+
+                <div>
+                    <span class="perfil-legenda" data-cliente-campo="identificador">CLIENTE</span>
+
+                    <h2 data-cliente-campo="nome">Carregando cliente...</h2>
+
+                    <span class="perfil-status" data-cliente-status>Carregando situação...</span>
+                </div>
+
+                <a class="perfil-botao-principal" href="editar_cliente.html" data-link-editar-cliente>
+                    <i class="fa-regular fa-pen-to-square"></i>
+                    Editar cliente
+                </a>
+
+
+                <button type="button"
+                        class="perfil-botao-status"
+                        id="btnStatusCliente"
+                        data-status="ativo">
+                    Desativar cadastro
+                </button>
+
+            </div>
+
+            <div class="perfil-dados">
+
+                <div>
+                    <span>Nome completo</span>
+                    <strong data-cliente-campo="nome">—</strong>
+                </div>
+
+                <div>
+                    <span>E-mail</span>
+                    <strong data-cliente-campo="email">—</strong>
+                </div>
+
+                <div>
+                    <span>Telefone</span>
+                    <strong data-cliente-campo="telefone">—</strong>
+                </div>
+
+                <div>
+                    <span>Data de cadastro</span>
+                    <strong data-cliente-campo="dataCadastroFormatada">—</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="perfil-projetos">
+
+            <h2>Projetos vinculados</h2>
+
+            <div class="perfil-projetos-lista" data-lista-projetos-cliente><p>Carregando projetos vinculados...</p></div>
+
+                <a href="gerenciar_projetos.html">
+                    Consultar projetos
+                </a>
+
+            </div>
+
+        </section>
+
+        <aside class="perfil-aviso"><i class="fa-solid fa-circle-info"></i><p>Os dados e projetos vinculados são carregados do banco de dados. O administrador poderá editar os dados cadastrais, mas não visualizar a senha do cliente.</p></aside>
+
+    </main>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/status_cliente.js"></script>
+    <script src="Js/script.js"></script>
+
+</body>
+
+</html>

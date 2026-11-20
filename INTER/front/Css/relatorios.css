@@ -1,0 +1,131 @@
+/* RELATÓRIOS GERENCIAIS - BEASSI */
+.relatorios-header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.relatorios-header img{display:block;width:220px;max-width:100%;height:auto}
+.relatorios-header nav{display:flex;align-items:center;gap:24px}
+.relatorios-header nav a{color:#EAE5DF;text-decoration:none;font-size:12px;letter-spacing:1px;transition:color .2s ease}
+.relatorios-header nav a:hover{color:#fff}
+.relatorios-main{width:min(1100px,92%);margin:0 auto;padding:42px 0 80px}
+.relatorios-voltar{display:inline-flex;align-items:center;gap:9px;color:#474E3A;font-size:13px;text-decoration:none}
+.relatorios-voltar:hover{color:#AF7864}
+.relatorios-intro{text-align:center;margin:30px auto 36px;max-width:760px}
+.relatorios-intro>span,.relatorio-numero{color:#AF7864;font-size:11px;font-weight:700;letter-spacing:2px}
+.relatorios-intro h1{margin:12px 0;color:#474E3A;font-size:clamp(27px,4vw,38px);font-weight:500}
+.relatorios-intro p,.relatorio-cabecalho p{color:#625b55;font-size:13px;line-height:1.7}
+.relatorios-filtros{display:flex;align-items:end;flex-wrap:wrap;gap:12px;padding:18px 20px;margin-bottom:18px;background:#f4f0eb;border-radius:10px}
+.relatorios-filtros div{display:flex;flex-direction:column;gap:6px}
+.relatorios-filtros label{font-size:11px;font-weight:600;color:#474E3A}
+.relatorios-filtros input{min-height:39px;padding:8px 10px;border:1px solid #d9d0c8;border-radius:6px;background:#fff;color:#474E3A;font:inherit}
+.relatorios-filtros button,.botao-relatorio{min-height:39px;padding:0 16px;border:0;border-radius:6px;background:#474E3A;color:#fff;font:600 11px Montserrat,sans-serif;cursor:pointer;transition:background .2s}
+.relatorios-filtros button:hover,.botao-relatorio:hover{background:#626b50}
+.relatorios-filtros .botao-limpar{background:transparent;color:#625b55;border:1px solid #cfc5bc}
+.relatorios-filtros .botao-limpar:hover{background:#fff}
+.relatorios-status{min-height:18px;margin:0 0 18px;color:#756b62;font-size:11px}
+.relatorio-bloco{margin:0 0 20px;padding:24px;border:1px solid #e7ded7;border-radius:12px;background:#fff;box-shadow:0 5px 16px #474E3A0b}
+.relatorio-cabecalho{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.relatorio-cabecalho h2{margin:8px 0;color:#474E3A;font-size:20px;font-weight:600}
+.relatorio-cabecalho p{margin:0}
+.botao-relatorio{white-space:nowrap}
+.relatorio-conteudo{margin-top:20px}
+.relatorio-placeholder{padding:18px;border-radius:7px;background:#faf8f6;color:#817970;font-size:12px;text-align:center}
+.relatorio-tabela-wrap{overflow-x:auto}
+.relatorio-tabela{width:100%;border-collapse:collapse;font-size:12px;text-align:left}
+.relatorio-tabela th{padding:12px;background:#f4f0eb;color:#474E3A;font-weight:700;white-space:nowrap}
+.relatorio-tabela td{padding:12px;border-bottom:1px solid #eee8e2;color:#625b55}
+.relatorio-tabela tr:last-child td{border-bottom:0}
+.relatorio-vazio,.relatorio-erro{padding:16px;background:#faf8f6;border-radius:7px;color:#756b62;font-size:12px}
+.relatorio-erro{color:#9b4d3f}
+.relatorio-indicadores{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}
+.relatorio-indicador{padding:16px;border:1px solid #eee8e2;border-radius:8px}
+.relatorio-indicador strong{display:block;color:#474E3A;font-size:24px;font-weight:600}
+.relatorio-indicador span{display:block;margin-top:5px;color:#756b62;font-size:11px}
+.relatorios-aviso{display:flex;align-items:flex-start;gap:12px;margin-top:26px;padding:17px 19px;border-left:3px solid #AF7864;background:#f4f0eb;color:#625b55}
+.relatorios-aviso i{margin-top:2px;color:#AF7864}
+.relatorios-aviso p{font-size:12px;line-height:1.7}
+@media(max-width:700px){.relatorios-header{flex-direction:column;justify-content:center}.relatorios-header img{width:170px}.relatorios-header nav{justify-content:center}.relatorios-main{padding-top:30px}.relatorio-bloco{padding:18px}.relatorio-cabecalho{align-items:flex-start;flex-direction:column}.botao-relatorio{width:100%}.relatorios-filtros{align-items:stretch;flex-direction:column}.relatorios-filtros input,.relatorios-filtros button{width:100%}}
+
+
+/* DASHBOARDS */
+
+.dashboard-bloco {
+    margin-top: 26px;
+}
+
+.dashboard-subtitulo {
+    margin: 22px 0 14px;
+    color: #474E3A;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.satisfacao-lista {
+    display: grid;
+    gap: 14px;
+}
+
+.satisfacao-item {
+    padding: 17px;
+    border: 1px solid #eee8e2;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.satisfacao-cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.satisfacao-cabecalho strong {
+    color: #474E3A;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.satisfacao-percentual {
+    color: #474E3A;
+    font-size: 16px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.satisfacao-barra {
+    width: 100%;
+    height: 9px;
+    margin-top: 13px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #eeeae5;
+}
+
+.satisfacao-progresso {
+    height: 100%;
+    border-radius: 20px;
+    background: #718064;
+    transition: width .3s ease;
+}
+
+.satisfacao-descricao {
+    margin: 9px 0 0;
+    color: #817970;
+    font-size: 11px;
+}
+
+.satisfacao-sem-feedback {
+    background: #faf8f6;
+}
+
+.satisfacao-status {
+    color: #AF7864;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: right;
+}
+
+@media(max-width: 500px) {
+    .satisfacao-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 7px;
+    }
+}

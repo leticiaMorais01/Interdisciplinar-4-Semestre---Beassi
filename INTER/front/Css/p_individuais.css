@@ -1,0 +1,232 @@
+/* Página de projeto individual - identidade visual BEASSI */
+body {
+  background-color: #EAE5DF;
+  color: #474E3A;
+}
+
+.pagina-projeto {
+  padding-top: 38px;
+  padding-bottom: 75px;
+}
+
+.voltar-projetos {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #7b6255;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0 0 22px 2px;
+  transition: color .2s ease;
+}
+
+.voltar-projetos:hover { color: #AF7864; }
+
+h1.nome-projeto {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: #474E3A;
+  margin: 0 0 48px;
+  position: relative;
+}
+
+h1.nome-projeto::after {
+  content: "";
+  width: 66px;
+  height: 3px;
+  background: #AF7864;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -15px;
+  border-radius: 20px;
+}
+
+.galeria {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.imagem-principal {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,.12);
+  background: #ddd4ca;
+}
+
+.miniaturas {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 13px;
+  flex-wrap: wrap;
+}
+
+.miniatura {
+  width: 100px;
+  height: 74px;
+  padding: 0;
+  overflow: hidden;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  opacity: .68;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.miniatura img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.miniatura:hover,
+.miniatura.ativa {
+  opacity: 1;
+  border-color: #AF7864;
+  transform: translateY(-2px);
+}
+
+.informacoes-projeto {
+  max-width: 1050px;
+  margin: 55px auto 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(260px, .8fr);
+  gap: 55px;
+  align-items: start;
+}
+
+.descricao-projeto {
+  padding: 8px 0;
+}
+
+.sobretitulo {
+  display: block;
+  color: #AF7864;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.descricao-projeto h2,
+.dados-projeto h2 {
+  color: #474E3A;
+  font-size: 23px;
+  font-weight: 500;
+  margin: 0 0 17px;
+}
+
+.descricao-projeto p {
+  color: #625d55;
+  font-size: 15px;
+  line-height: 1.9;
+  margin: 0;
+  max-width: 650px;
+}
+
+.dados-projeto {
+  background: rgba(255,255,255,.42);
+  border: 1px solid rgba(71,78,58,.10);
+  border-radius: 14px;
+  padding: 25px 27px;
+}
+
+.dados-projeto h2 {
+  font-size: 19px;
+  margin-bottom: 19px;
+}
+
+.dado-projeto {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 13px 0;
+  border-top: 1px solid rgba(71,78,58,.13);
+  font-size: 13px;
+}
+
+.dado-projeto > span {
+  color: #82776d;
+  flex: 0 0 auto;
+}
+
+.dado-projeto strong {
+  color: #474E3A;
+  font-weight: 600;
+  text-align: right;
+}
+
+.categorias-dado {
+  display: block;
+}
+
+.categorias-dado > span {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.etiquetas-categorias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.etiqueta-categoria {
+  display: inline-block;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #EAE5DF;
+  border: 1px solid rgba(175,120,100,.35);
+  color: #76594c;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+@media (max-width: 760px) {
+  .pagina-projeto { padding-top: 25px; }
+  h1.nome-projeto { font-size: 30px; margin-bottom: 38px; }
+  .galeria { width: 100%; }
+  .imagem-principal { aspect-ratio: 4 / 3; border-radius: 13px; }
+  .miniatura { width: 82px; height: 62px; }
+  .informacoes-projeto {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 38px;
+  }
+  .dados-projeto { padding: 22px; }
+}
+
+@media (max-width: 420px) {
+  h1.nome-projeto { font-size: 25px; }
+  .miniaturas { gap: 9px; }
+  .miniatura { width: 72px; height: 55px; }
+  .descricao-projeto h2 { font-size: 21px; }
+}
+
+/* AJUSTE DAS MINIATURAS DA GALERIA */
+
+.pagina-projeto .miniaturas {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center;
+    gap: 12px !important;
+    width: 100%;
+    margin: 18px auto 0;
+}
+
+.pagina-projeto .miniatura {
+    flex: 0 0 100px !important;
+    width: 100px !important;
+    height: 74px !important;
+    margin: 0 !important;
+}

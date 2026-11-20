@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro de Projeto | BEASSI Arquitetura</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Css/cadastro_projeto.css">
+</head>
+
+<body>
+
+    <main class="container-cadastro">
+
+        <h1>Cadastrar novo Projeto</h1>
+
+        <form action="#" method="POST" enctype="multipart/form-data" class="form-cadastro" id="formCadastroProjeto">
+
+            <!-- TÍTULO -->
+            <label for="titulo">Título do projeto</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <!-- DESCRIÇÃO -->
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" rows="4" required></textarea>
+
+            <!-- CLIENTE VINCULADO -->
+            <label for="clienteProjeto">Cliente responsável (opcional)</label>
+            <select id="clienteProjeto" name="clienteId" data-carregar-clientes>
+                <option value="">Carregando clientes...</option>
+            </select>
+
+            <p class="aviso-cliente-projeto" id="avisoClienteProjeto" role="status">
+                Selecione um cliente cadastrado ou mantenha “Nenhum cliente”.
+            </p>
+
+            <!-- TIPO -->
+            <label for="tipoProjeto">Tipo de projeto</label>
+
+            <select id="tipoProjeto" name="tipoProjeto" required>
+                <option value="" disabled selected>Selecione o tipo</option>
+                <option value="RESIDENCIAL">Residencial</option>
+                <option value="COMERCIAL">Comercial</option>
+            </select>
+
+            <label for="subtipoProjeto">Tipo específico do projeto</label>
+
+            <select id="subtipoProjeto" name="subtipoProjeto" required>
+                <option value="">Selecione primeiro o tipo de projeto</option>
+            </select>
+
+            <!-- CATEGORIAS -->
+            <label>Categorias</label>
+
+            <div class="categorias-container" id="categoriasContainer" data-carregar-categorias>
+                <p>Carregando categorias...</p>
+            </div>
+
+            <!-- PUBLICAÇÃO -->
+            <label class="campo-publicacao">
+                <input type="checkbox" name="statusPublicacao" id="statusPublicacao" value="true" checked>
+                Exibir este projeto no portfólio público
+            </label>
+
+            <!-- IMAGENS -->
+            <label for="imagem">Selecionar imagens do projeto</label>
+
+            <input
+                type="file"
+                id="imagem"
+                name="imagem"
+                accept="image/*"
+                multiple
+            >
+
+            <!-- BOTÃO -->
+            <button type="submit" class="btn-cadastrar">
+                Cadastrar projeto
+            </button>
+
+        </form>
+
+    </main>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+
+</body>
+</html>

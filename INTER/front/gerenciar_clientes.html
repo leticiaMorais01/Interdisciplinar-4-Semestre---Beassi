@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes cadastrados | BEASSI Arquitetura</title>
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/gerenciar_clientes.css">
+</head>
+<body>
+    <header class="clientes-admin-header">
+        <a href="index.html" aria-label="Voltar ao site BEASSI">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+        <nav aria-label="Navegação administrativa">
+            <a href="painel_admin.html">PAINEL ADMINISTRATIVO</a>
+            <a href="login.html">SAIR</a>
+        </nav>
+    </header>
+
+    <main class="clientes-admin-main" id="conteudo-principal">
+        <a class="clientes-admin-voltar" href="painel_admin.html">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao painel
+        </a>
+
+        <section class="clientes-admin-intro">
+            <span>ÁREA ADMINISTRATIVA</span>
+            <h1>Clientes cadastrados</h1>
+            <p>Consulte os dados básicos dos clientes e acompanhe seus vínculos com projetos.</p>
+        </section>
+
+        <section class="clientes-admin-resumo" aria-label="Resumo dos clientes">
+            <div><strong id="qtdClientes">—</strong><span>Clientes cadastrados</span></div>
+            <div><strong id="qtdAtivos">—</strong><span>Com projetos</span></div>
+            <div><strong id="qtdSemProjeto">—</strong><span>Sem projetos</span></div>
+        </section>
+
+        <section class="clientes-admin-lista" aria-labelledby="titulo-clientes">
+            <div class="clientes-admin-cabecalho">
+                <h2 id="titulo-clientes">Lista de clientes</h2>
+                <div class="clientes-admin-filtros">
+                    <label class="sr-only" for="buscarCliente">Buscar por nome ou e-mail</label>
+                    <div class="clientes-admin-busca">
+                        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                        <input id="buscarCliente" type="search" placeholder="Buscar cliente...">
+                    </div>
+                    <label class="sr-only" for="filtroProjetos">Filtrar por projetos</label>
+                    <select id="filtroProjetos">
+                        <option value="todos">Todos os clientes</option>
+                        <option value="com">Com projetos</option>
+                        <option value="sem">Sem projetos</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="clientes-admin-tabela-wrap">
+                <table class="clientes-admin-tabela">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Contato</th>
+                            <th>Projetos vinculados</th>
+                            <th>Cadastro</th>
+                            <th>Situação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    
+                        <tbody id="tabelaClientes"><tr><td colspan="6">Carregando clientes cadastrados...</td></tr></tbody>
+
+                </table>
+            </div>
+            <p class="clientes-admin-vazio" id="clientesVazio" hidden>Nenhum cliente encontrado com os critérios selecionados.</p>
+        </section>
+
+        
+    </main>
+
+    <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/gerenciar_clientes.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>

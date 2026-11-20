@@ -1,0 +1,310 @@
+USE bdarquitetura;
+GO
+
+/* =========================================================
+   3 VIEWS - RELATORIOS GERENCIAIS
+   ========================================================= */
+
+-- VIEW 1: relatorio geral dos projetos
+-- Uma linha por projeto, com cliente, tipo, etapa e administrador.
+CREATE VIEW v_RelatorioProjetos
+AS
+    SELECT P.ID_PROJETO, P.TITULO, P.DESCRICAO, P.DATA,
+           CASE P.STATUS_PUBLICACAO
+                WHEN 1 THEN 'Publicado'
+                ELSE 'Nao publicado'
+           END AS STATUS_PUBLICACAO,
+           P.ETAPA_ATUAL, P.PORCENTAGEM_CONCLUSAO, C.NOME AS CLIENTE,
+           CASE 
+                WHEN P.TIPO_COMERCIAL_ID IS NOT NULL THEN TC.TIPO
+                ELSE TR.TIPO
+           END AS TIPO_PROJETO,
+           U.EMAIL AS EMAIL_ADMINISTRADOR,
+            (SELECT COUNT(*)
+            FROM IMAGEM I
+            WHERE I.PROJETO_ID = P.ID_PROJETO) AS TOTAL_IMAGENS
+    FROM PROJETO P
+    LEFT JOIN CLIENTE C ON P.CLIENTE_ID = C.ID_USUARIO
+    LEFT JOIN TIPO_COMERCIAL TC ON P.TIPO_COMERCIAL_ID = TC.ID_TIPO_COMERCIAL
+    LEFT JOIN TIPO_RESIDENCIAL TR ON P.TIPO_RESIDENCIAL_ID = TR.ID_TIPO_RESIDENCIAL
+    INNER JOIN ADMINISTRADOR A ON P.ADMINISTRADOR_ID = A.ID_USUARIO
+    INNER JOIN USUARIO U ON A.ID_USUARIO = U.ID_USUARIO;
+GO
+
+
+SELECT * FROM v_RelatorioProjetos;
+
+-- VIEW 2: relatorio de feedbacks
+-- Mostra feedback, projeto e cliente; respeita a opcao de anonimato.
+
+CREATE VIEW v_RelatorioFeedbacks
+AS
+    SELECT F.ID_FEEDBACK, F.PROJETO_ID, P.TITULO AS PROJETO, F.CLIENTE_ID,
+           CASE F.EXIBIR_NOME
+               WHEN  1 THEN C.NOME
+               ELSE 'Anonimo'
+           END AS CLIENTE,
+           F.NOTA, F.COMENTARIO, F.DATA_ENVIO, F.STATUS_APROVACAO
+    FROM FEEDBACK F
+    INNER JOIN PROJETO P ON F.PROJETO_ID = P.ID_PROJETO
+    INNER JOIN CLIENTE C ON F.CLIENTE_ID = C.ID_USUARIO;
+GO
+
+
+SELECT * FROM v_RelatorioFeedbacks;
+
+-- VIEW 3: relatorio de clientes
+-- Resume quantidade de projetos e feedbacks por cliente.
+
+CREATE VIEW v_RelatorioClientes
+AS
+    SELECT C.ID_USUARIO AS ID_CLIENTE, C.NOME, U.EMAIL, C.TELEFONE,
+           CASE C.STATUS
+               WHEN 1 THEN 'Ativo'
+               ELSE 'Inativo'
+           END AS STATUS_CLIENTE,
+                (SELECT COUNT(*)
+                 FROM PROJETO P
+                 WHERE P.CLIENTE_ID = C.ID_USUARIO) AS TOTAL_PROJETOS,
+
+                (SELECT COUNT(*)
+                 FROM FEEDBACK F
+                 WHERE F.CLIENTE_ID = C.ID_USUARIO) AS TOTAL_FEEDBACKS,
+
+                (SELECT AVG(CAST(F.NOTA AS DECIMAL(5,2)))
+                 FROM FEEDBACK F
+                 WHERE F.CLIENTE_ID = C.ID_USUARIO) AS MEDIA_NOTAS
+    FROM CLIENTE C
+    INNER JOIN dbo.USUARIO U ON C.ID_USUARIO = U.ID_USUARIO;
+GO
+
+
+SELECT * FROM v_RelatorioClientes;
+
+
+
+/* =========================================================
+   3 FUNCTIONS
+   ========================================================= */
+
+-- FUNCTION 1: escalar
+-- Retorna um unico valor: a media das notas de um projeto.
+-- Se o projeto ainda nao recebeu feedback, retorna NULL.
+
+CREATE FUNCTION fc_MediaNotasProjeto (@ID_PROJETO INT)
+RETURNS DECIMAL(5,2)
+AS
+BEGIN
+    DECLARE @MEDIA DECIMAL(5,2);
+
+    SELECT @MEDIA = AVG(CAST(NOTA AS DECIMAL(5,2)))
+    FROM FEEDBACK
+    WHERE PROJETO_ID = @ID_PROJETO;
+
+    RETURN @MEDIA;
+END
+GO
+
+
+SELECT MEDIA_NOTAS = dbo.fc_MediaNotasProjeto(12)
+
+
+-- FUNCTION 2: table-valued inline
+-- Retorna os projetos vinculados a um cliente.
+
+CREATE FUNCTION fc_ProjetosPorCliente (@ID_CLIENTE INT)
+RETURNS TABLE
+AS
+    RETURN (
+                SELECT ID_PROJETO, TITULO, DATA, ETAPA_ATUAL, PORCENTAGEM_CONCLUSAO, STATUS_PUBLICACAO
+                FROM PROJETO
+                WHERE CLIENTE_ID = @ID_CLIENTE
+            )
+GO
+
+
+SELECT * FROM dbo.fc_ProjetosPorCliente(2);
+
+
+-- FUNCTION 3: table-valued multi-statement
+-- Monta uma tabela de resumo com quantidade e media de feedbacks
+-- para cada projeto que possui ao menos um feedback.
+
+CREATE FUNCTION fc_ResumoFeedbackProjetos()
+RETURNS @TB_RESUMO TABLE (
+                          ID_PROJETO INT,
+                          TITULO VARCHAR(30),
+                          TOTAL_FEEDBACKS INT,
+                          MEDIA_NOTAS DECIMAL(5,2)
+                      )
+AS
+BEGIN
+    INSERT INTO @TB_RESUMO
+        SELECT P.ID_PROJETO, P.TITULO, COUNT(F.ID_FEEDBACK) AS TOTAL_FEEDBACKS, AVG(CAST(F.NOTA AS DECIMAL(5,2))) AS MEDIA_NOTAS
+        FROM PROJETO P
+        INNER JOIN FEEDBACK F ON P.ID_PROJETO = F.PROJETO_ID
+        GROUP BY P.ID_PROJETO, P.TITULO;
+
+    RETURN
+END
+GO
+
+
+SELECT * FROM dbo.fc_ResumoFeedbackProjetos()
+
+
+
+
+/* =========================================================
+   3 STORED PROCEDURES 
+   ========================================================= */
+
+USE bdarquitetura;
+GO
+
+-- PROCEDURE 1: cadastrar feedback
+-- Verifica a existência do cliente e do projeto,
+-- confirma se o projeto pertence ao cliente e cadastra o feedback.
+
+CREATE PROCEDURE sp_CadastrarFeedback (@CLIENTE_ID INT, @PROJETO_ID INT, @NOTA INT, @COMENTARIO VARCHAR(500), @EXIBIR_NOME BIT)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRAN
+
+        -- Verificar se o cliente e o projeto existem
+        -- e se o projeto está relacionado ao cliente
+        IF NOT EXISTS (
+            SELECT *
+            FROM CLIENTE C
+            INNER JOIN PROJETO P ON C.ID_USUARIO = P.CLIENTE_ID
+            WHERE C.ID_USUARIO = @CLIENTE_ID
+                  AND P.ID_PROJETO = @PROJETO_ID
+        )
+        BEGIN
+            ROLLBACK;
+            PRINT 'Cliente ou projeto não encontrado, ou projeto não pertence ao cliente.';
+            RETURN;
+        END
+
+        -- Cadastrar o feedback
+        INSERT INTO FEEDBACK (CLIENTE_ID, PROJETO_ID, NOTA, COMENTARIO, EXIBIR_NOME)
+        VALUES (@CLIENTE_ID, @PROJETO_ID, @NOTA, @COMENTARIO, @EXIBIR_NOME);
+
+        COMMIT
+        PRINT 'Feedback cadastrado com sucesso!'
+
+    END TRY
+
+    BEGIN CATCH
+        ROLLBACK;
+        PRINT 'Erro: não foi possível cadastrar o feedback.'
+    END CATCH
+END
+GO
+
+EXEC sp_CadastrarFeedback 2, 3, 5, 'Excelente projeto!', 1
+
+SELECT * FROM CLIENTE;
+SELECT * FROM PROJETO;
+SELECT * FROM FEEDBACK;
+
+
+-- PROCEDURE 2: atualizar etapa do projeto
+-- Verifica se o projeto existe e atualiza sua etapa
+-- e porcentagem de conclusão.
+
+CREATE PROCEDURE sp_AtualizarEtapaProjeto (@ID_PROJETO INT, @ETAPA_ATUAL VARCHAR(30), @PORCENTAGEM_CONCLUSAO INT)
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRAN
+
+        -- Verificar se o projeto existe
+        IF NOT EXISTS (
+            SELECT *
+            FROM PROJETO
+            WHERE ID_PROJETO = @ID_PROJETO
+        )
+        BEGIN
+            ROLLBACK;
+            PRINT 'Projeto não encontrado.';
+            RETURN;
+        END
+
+        -- Atualizar a etapa e a porcentagem de conclusão
+        UPDATE PROJETO
+        SET ETAPA_ATUAL = @ETAPA_ATUAL,
+            PORCENTAGEM_CONCLUSAO = @PORCENTAGEM_CONCLUSAO
+        WHERE ID_PROJETO = @ID_PROJETO;
+
+        COMMIT
+        PRINT 'Etapa do projeto atualizada com sucesso!'
+
+    END TRY
+
+    BEGIN CATCH
+    ROLLBACK;
+
+    PRINT 'Erro: não foi possível atualizar a etapa do projeto.';
+    PRINT ERROR_MESSAGE();
+    END CATCH
+END
+GO
+
+EXEC sp_AtualizarEtapaProjeto 3, 'Desenvolvimento do projeto', 33
+
+SELECT * FROM PROJETO
+
+
+-- PROCEDURE 3: atualizar status do feedback
+-- Verifica a existência do feedback e a validade
+-- do status antes de atualizar sua aprovação.
+
+CREATE PROCEDURE sp_AtualizarStatusFeedback (@ID_FEEDBACK INT, @STATUS_APROVACAO VARCHAR(10))
+AS
+BEGIN
+    BEGIN TRY
+        BEGIN TRAN
+
+        -- Verificar se o feedback existe
+        IF NOT EXISTS (
+            SELECT *
+            FROM FEEDBACK
+            WHERE ID_FEEDBACK = @ID_FEEDBACK
+        )
+        BEGIN
+            ROLLBACK;
+            PRINT 'Feedback não encontrado.';
+            RETURN;
+        END
+
+        -- Verificar se o status informado é válido
+        IF @STATUS_APROVACAO NOT IN ('PENDENTE', 'APROVADO', 'REJEITADO')
+        BEGIN
+            ROLLBACK;
+            PRINT 'Status de aprovação inválido.';
+            RETURN;
+        END
+
+        -- Atualizar o status do feedback
+        UPDATE FEEDBACK
+        SET STATUS_APROVACAO = @STATUS_APROVACAO
+        WHERE ID_FEEDBACK = @ID_FEEDBACK;
+
+        COMMIT;
+        PRINT 'Status do feedback atualizado com sucesso!';
+
+    END TRY
+
+    BEGIN CATCH
+        ROLLBACK;
+        PRINT 'Erro: não foi possível atualizar o status do feedback.';
+    END CATCH
+END
+GO
+
+
+EXEC sp_AtualizarStatusFeedback 5, 'APROVADO'
+
+SELECT * FROM FEEDBACK;

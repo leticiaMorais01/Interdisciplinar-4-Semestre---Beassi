@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios gerenciais | BEASSI Arquitetura</title>
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/relatorios.css">
+</head>
+<body>
+    <header class="relatorios-header">
+        <a href="index.html" aria-label="Voltar ao site BEASSI">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+        <nav aria-label="Navegação administrativa">
+            <a href="painel_admin.html">PAINEL ADMINISTRATIVO</a>
+            <a href="login.html">SAIR</a>
+        </nav>
+    </header>
+
+    <main class="relatorios-main" id="conteudo-principal">
+        <a class="relatorios-voltar" href="painel_admin.html">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao painel
+        </a>
+
+        <section class="relatorios-intro">
+            <span>ÁREA ADMINISTRATIVA</span>
+            <h1>Relatórios gerenciais</h1>
+            <p>Consulte informações consolidadas para acompanhar os projetos, os clientes e as avaliações recebidas pela BEASSI.</p>
+        </section>
+
+
+
+        <p class="relatorios-status" id="statusRelatorios" role="status">Selecione um relatório para carregar os dados.</p>
+
+        <section class="relatorio-bloco" aria-labelledby="titulo-relatorio-projetos">
+            <div class="relatorio-cabecalho">
+                <div>
+                    <span class="relatorio-numero">RELATÓRIO 01</span>
+                    <h2 id="titulo-relatorio-projetos">Projetos</h2>
+                    <p>Visão geral dos projetos cadastrados e de suas informações.</p>
+                </div>
+                <button type="button" class="botao-relatorio" data-relatorio="projetos">Gerar relatório <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="relatorio-conteudo" id="resultadoProjetos">
+                <p class="relatorio-placeholder">Clique em “Gerar relatório” para consultar os dados.</p>
+            </div>
+        </section>
+
+        <section class="relatorio-bloco" aria-labelledby="titulo-relatorio-clientes">
+            <div class="relatorio-cabecalho">
+                <div>
+                    <span class="relatorio-numero">RELATÓRIO 02</span>
+                    <h2 id="titulo-relatorio-clientes">Clientes</h2>
+                    <p>Informações dos clientes e seus vínculos com os projetos.</p>
+                </div>
+                <button type="button" class="botao-relatorio" data-relatorio="clientes">Gerar relatório <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="relatorio-conteudo" id="resultadoClientes">
+                <p class="relatorio-placeholder">Clique em “Gerar relatório” para consultar os dados.</p>
+            </div>
+        </section>
+
+        <section class="relatorio-bloco" aria-labelledby="titulo-relatorio-feedbacks">
+            <div class="relatorio-cabecalho">
+                <div>
+                    <span class="relatorio-numero">RELATÓRIO 03</span>
+                    <h2 id="titulo-relatorio-feedbacks">Feedbacks</h2>
+                    <p>Resumo das avaliações recebidas e de suas situações.</p>
+                </div>
+                <button type="button" class="botao-relatorio" data-relatorio="feedbacks">Gerar relatório <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+            <div class="relatorio-conteudo" id="resultadoFeedbacks">
+                <p class="relatorio-placeholder">Clique em “Gerar relatório” para consultar os dados.</p>
+            </div>
+        </section>
+
+
+        <!-- DASHBOARD 01: RESUMO DE FEEDBACKS -->
+        <section class="relatorio-bloco dashboard-bloco"
+                 aria-labelledby="titulo-dashboard-resumo">
+
+            <div class="relatorio-cabecalho">
+                <div>
+                    <span class="relatorio-numero">DASHBOARD 01</span>
+                    <h2 id="titulo-dashboard-resumo">Resumo de feedbacks</h2>
+                    <p>Quantidade de avaliações e média das notas recebidas por projeto.</p>
+                </div>
+
+                <button type="button"
+                        class="botao-relatorio"
+                        id="gerarDashboardResumo">
+                    Gerar dashboard
+                    <i class="fa-solid fa-chart-column"></i>
+                </button>
+            </div>
+
+            <div class="relatorio-conteudo" id="resultadoDashboardResumo">
+                <p class="relatorio-placeholder">
+                    Clique em “Gerar dashboard” para consultar o resumo dos feedbacks.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- DASHBOARD 02: SATISFAÇÃO DOS PROJETOS -->
+        <section class="relatorio-bloco dashboard-bloco"
+                 aria-labelledby="titulo-dashboard-satisfacao">
+
+            <div class="relatorio-cabecalho">
+                <div>
+                    <span class="relatorio-numero">DASHBOARD 02</span>
+                    <h2 id="titulo-dashboard-satisfacao">Satisfação dos projetos</h2>
+                    <p>Quantidade de avaliações, avaliações positivas e percentual por projeto.</p>
+                </div>
+
+                <button type="button"
+                        class="botao-relatorio"
+                        id="gerarDashboardSatisfacao">
+                    Gerar dashboard
+                    <i class="fa-solid fa-chart-pie"></i>
+                </button>
+            </div>
+
+            <div class="relatorio-conteudo" id="resultadoDashboardSatisfacao">
+                <p class="relatorio-placeholder">
+                    Clique em “Gerar dashboard” para consultar a satisfação dos projetos.
+                </p>
+            </div>
+        </section>
+
+
+    </main>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/relatorios.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>

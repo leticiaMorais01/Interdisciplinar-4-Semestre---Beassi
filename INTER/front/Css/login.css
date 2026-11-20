@@ -1,0 +1,791 @@
+/* LOGIN BEASSI - estilos isolados para não interferir nos demais formulários */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 28px;
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(135deg, #EAE5DF 0%, #BBA89A 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #474E3A;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    width: min(100%, 1000px);
+    min-height: 590px;
+    background: #EAE5DF;
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 18px 50px rgba(35, 39, 29, .18);
+}
+
+.form-section {
+    flex: 1 1 52%;
+    min-width: 0;
+    padding: 58px clamp(28px, 5vw, 66px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #F7F4F0;
+}
+
+.logo-login {
+    display: block;
+    width: min(220px, 75%);
+    height: auto;
+    object-fit: contain;
+    margin: 0 0 32px;
+}
+
+.form-section h2 {
+    position: relative;
+    margin: 0 0 34px;
+    color: #474E3A;
+    font-size: clamp(30px, 3vw, 38px);
+    font-weight: 500;
+}
+
+.form-section h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -12px;
+    width: 58px;
+    height: 3px;
+    background: #AF7864;
+}
+
+.form-section form {
+    width: 100%;
+    max-width: 390px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-section input {
+    display: block;
+    width: 100%;
+    min-height: 50px;
+    padding: 14px 16px;
+    border: 1px solid #cdb6aa;
+    border-radius: 9px;
+    background: #fff;
+    color: #474E3A;
+    outline: none;
+    font: inherit;
+    font-size: 14px;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-section input:focus {
+    border-color: #AF7864;
+    box-shadow: 0 0 0 3px rgba(175,120,100,.15);
+}
+
+.esqueceu {
+    align-self: flex-end;
+    margin-top: -4px;
+    color: #756b63;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.esqueceu:hover {
+    color: #AF7864;
+    text-decoration: underline;
+}
+
+.form-section button {
+    width: 100%;
+    min-height: 49px;
+    margin: 7px 0 0;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 9px;
+    background: #474E3A;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background .2s, transform .2s;
+}
+
+.form-section button:hover {
+    background: #AF7864;
+    transform: translateY(-1px);
+}
+
+.welcome-section {
+    flex: 0 0 43%;
+    min-width: 0;
+    padding: 45px;
+    background: linear-gradient(145deg, #AF7864, #8f6958);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 105px 0 0 105px;
+}
+
+.overlay {
+    width: 100%;
+    max-width: 330px;
+    text-align: center;
+    color: #fff;
+}
+
+.overlay h1 {
+    margin: 0 0 18px;
+    color: #fff;
+    font-size: clamp(36px, 4vw, 48px);
+    font-weight: 500;
+}
+
+.overlay p {
+    margin: 0 0 30px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.btn-cadastro {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 46px;
+    padding: 12px 30px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: .2s;
+}
+
+.btn-cadastro:hover {
+    background: #fff;
+    color: #8f6958;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+}
+
+:focus-visible {
+    outline: 3px solid #AF7864;
+    outline-offset: 3px;
+}
+
+
+/* Menu de acessibilidade compartilhado com as outras páginas */
+
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 16px;
+    z-index: 6000;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background: #474E3A;
+    color: #fff;
+}
+
+.skip-link:focus {
+    top: 12px;
+}
+
+.accessibility-toggle {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 5000;
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: #474E3A;
+    color: #fff;
+    font-size: 23px;
+    cursor: pointer;
+    box-shadow: 0 5px 18px #0003;
+}
+
+.accessibility-toggle:hover {
+    background: #AF7864;
+}
+
+.accessibility-panel {
+    display: none;
+    position: fixed;
+    right: 22px;
+    bottom: 88px;
+    z-index: 5001;
+    width: min(320px, calc(100vw - 32px));
+    max-height: calc(100vh - 112px);
+    overflow-y: auto;
+    padding: 20px;
+    border: 1px solid #ded5cd;
+    border-radius: 16px;
+    background: #fff;
+    color: #474E3A;
+    box-shadow: 0 12px 36px #0003;
+}
+
+.accessibility-panel.aberto {
+    display: block;
+}
+
+.accessibility-panel h2 {
+    margin: 0 0 8px;
+    color: #474E3A;
+    font-size: 19px;
+}
+
+.accessibility-panel p {
+    margin: 0 0 12px;
+    color: #625b55;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.accessibility-panel button,
+.accessibility-panel select {
+    display: block;
+    width: 100%;
+    min-height: 42px;
+    margin: 8px 0 0;
+    padding: 10px 12px;
+    border: 1px solid #d5c8bd;
+    border-radius: 8px;
+    background: #f7f4f1;
+    color: #474E3A;
+    font: inherit;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.accessibility-panel .accessibility-close {
+    background: #474E3A;
+    color: #fff;
+    text-align: center;
+}
+
+.accessibility-panel label {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+body.alto-contraste {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.alto-contraste .login-box,
+body.alto-contraste .accessibility-panel {
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #ff0;
+}
+
+body.alto-contraste p,
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste label {
+    color: #ff0 !important;
+}
+
+body.fonte-aumentada {
+    font-size: 112%;
+}
+
+body.filtro-protanopia .login-box {
+    filter: sepia(.12) saturate(.78);
+}
+
+body.filtro-deuteranopia .login-box {
+    filter: saturate(.68) contrast(1.04);
+}
+
+body.filtro-tritanopia .login-box {
+    filter: sepia(.18) hue-rotate(8deg) saturate(.82);
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 18px;
+        align-items: flex-start;
+    }
+
+    .login-box {
+        max-width: 520px;
+        min-height: 0;
+        flex-direction: column;
+    }
+
+    .form-section {
+        padding: 38px clamp(24px, 7vw, 48px);
+    }
+
+    .logo-login {
+        width: 175px;
+        margin-bottom: 25px;
+    }
+
+    .welcome-section {
+        flex: auto;
+        min-height: 245px;
+        padding: 35px 28px;
+        border-radius: 65px 65px 0 0;
+    }
+
+    .overlay h1 {
+        font-size: 36px;
+    }
+
+    .overlay p {
+        margin-bottom: 22px;
+    }
+}
+
+@media (max-width: 420px) {
+    .form-section {
+        padding: 30px 22px;
+    }
+
+    .welcome-section {
+        min-height: 220px;
+    }
+
+    .accessibility-toggle {
+        right: 14px;
+        bottom: 14px;
+    }
+
+    .accessibility-panel {
+        right: 14px;
+        bottom: 78px;
+        max-height: calc(100vh - 94px);
+    }
+}
+
+
+/* ===== ACESSIBILIDADE FUNCIONAL - BEASSI ===== */
+
+.skip-link {
+    position: fixed !important;
+    top: -100px !important;
+    left: 16px !important;
+    z-index: 100000 !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    background: #474E3A !important;
+    color: #fff !important;
+}
+
+.skip-link:focus {
+    top: 12px !important;
+}
+
+.accessibility-toggle {
+    position: fixed !important;
+    right: 22px !important;
+    bottom: 22px !important;
+    z-index: 99999 !important;
+    display: grid !important;
+    place-items: center !important;
+    width: 54px !important;
+    height: 54px !important;
+    min-height: 54px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 50% !important;
+    background: #474E3A !important;
+    color: #fff !important;
+    font-size: 23px !important;
+    cursor: pointer !important;
+    box-shadow: 0 5px 18px #0003 !important;
+}
+
+.accessibility-toggle:hover {
+    background: #AF7864 !important;
+}
+
+.accessibility-panel {
+    display: none !important;
+    position: fixed !important;
+    right: 22px !important;
+    bottom: 88px !important;
+    z-index: 99998 !important;
+    width: min(320px, calc(100vw - 32px)) !important;
+    max-height: calc(100vh - 112px) !important;
+    overflow-y: auto !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 10px !important;
+    padding: 20px !important;
+    margin: 0 !important;
+    border: 1px solid #ded5cd !important;
+    border-radius: 16px !important;
+    background: #fff !important;
+    color: #474E3A !important;
+    text-align: left !important;
+    box-shadow: 0 12px 36px #0003 !important;
+    font-family: "Montserrat", sans-serif !important;
+}
+
+.accessibility-panel.aberto {
+    display: flex !important;
+}
+
+.accessibility-panel h2 {
+    margin: 0 0 4px !important;
+    color: #474E3A !important;
+    font-size: 19px !important;
+}
+
+.accessibility-panel p {
+    margin: 0 0 6px !important;
+    color: #625b55 !important;
+    font-size: 12px !important;
+    line-height: 1.5 !important;
+}
+
+.accessibility-panel button,
+.accessibility-panel select {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    min-height: 42px !important;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    border: 1px solid #d5c8bd !important;
+    border-radius: 8px !important;
+    background: #f7f4f1 !important;
+    color: #474E3A !important;
+    font-family: "Montserrat", sans-serif !important;
+    font-size: 12px !important;
+    text-align: left !important;
+    cursor: pointer !important;
+    transform: none !important;
+}
+
+.accessibility-panel button:hover {
+    background: #eee5de !important;
+}
+
+.accessibility-panel .accessibility-close {
+    background: #474E3A !important;
+    color: #fff !important;
+    text-align: center !important;
+}
+
+.accessibility-panel label {
+    display: block !important;
+    margin: 4px 0 0 !important;
+    color: #474E3A !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+.accessibility-panel select {
+    cursor: pointer !important;
+}
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0,0,0,0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+
+/* Alto contraste: aplica também aos elementos internos das páginas */
+
+body.alto-contraste {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+body.alto-contraste .container,
+body.alto-contraste .cadastro-box,
+body.alto-contraste .login-box,
+body.alto-contraste .form-section,
+body.alto-contraste .welcome-section,
+body.alto-contraste .overlay,
+body.alto-contraste input,
+body.alto-contraste button:not(.accessibility-toggle),
+body.alto-contraste .accessibility-panel {
+    background: #000 !important;
+    color: #fff !important;
+    border-color: #ff0 !important;
+}
+
+body.alto-contraste h1,
+body.alto-contraste h2,
+body.alto-contraste p,
+body.alto-contraste label,
+body.alto-contraste a,
+body.alto-contraste input::placeholder {
+    color: #ff0 !important;
+}
+
+body.alto-contraste :focus-visible {
+    outline: 3px solid #ff0 !important;
+    outline-offset: 3px !important;
+}
+
+body.alto-contraste .accessibility-toggle {
+    background: #ff0 !important;
+    color: #000 !important;
+}
+
+
+/* Aumento de texto */
+
+body.fonte-aumentada p,
+body.fonte-aumentada a,
+body.fonte-aumentada label,
+body.fonte-aumentada input,
+body.fonte-aumentada button,
+body.fonte-aumentada h1,
+body.fonte-aumentada h2,
+body.fonte-aumentada span {
+    font-size: 1.15em !important;
+}
+
+
+/* Filtros demonstrativos de percepção de cores. Não substituem testes de acessibilidade. */
+
+body.filtro-protanopia > :not(.accessibility-toggle):not(.accessibility-panel):not(.skip-link):not(svg) {
+    filter: url(#beassi-protanopia);
+}
+
+body.filtro-deuteranopia > :not(.accessibility-toggle):not(.accessibility-panel):not(.skip-link):not(svg) {
+    filter: url(#beassi-deuteranopia);
+}
+
+body.filtro-tritanopia > :not(.accessibility-toggle):not(.accessibility-panel):not(.skip-link):not(svg) {
+    filter: url(#beassi-tritanopia);
+}
+
+@media (max-width: 480px) {
+    .accessibility-toggle {
+        right: 14px !important;
+        bottom: 14px !important;
+    }
+
+    .accessibility-panel {
+        right: 14px !important;
+        bottom: 78px !important;
+        max-height: calc(100vh - 94px) !important;
+    }
+}
+
+
+/* Logo clicável: retorna à página inicial */
+
+.logo-home {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    line-height: 0;
+    text-decoration: none;
+}
+
+.logo-home:focus-visible {
+    outline: 3px solid #AF7864;
+    outline-offset: 5px;
+    border-radius: 4px;
+}
+
+.logo-home img {
+    display: block;
+    cursor: pointer;
+}
+
+
+/* BOTÃO VOLTAR À PÁGINA INICIAL */
+
+.btn-voltar-inicio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    width: 100%;
+    max-width: 390px;
+    min-height: 44px;
+
+    margin-top: 15px;
+    padding: 12px;
+
+    border: 1px solid #AF7864;
+    border-radius: 9px;
+
+    color: #474E3A;
+    background: transparent;
+
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    transition: .2s;
+}
+
+.btn-voltar-inicio:hover {
+    background: #AF7864;
+    color: #FFFFFF;
+}
+
+
+/* CAMPO DE SENHA COM OLHINHO */
+
+.campo-senha {
+    position: relative;
+    width: 100%;
+}
+
+.campo-senha input {
+    width: 100%;
+    padding-right: 50px;
+}
+
+.campo-senha .toggle-senha {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+
+    width: 28px;
+    min-height: 28px;
+    height: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: #474E3A;
+
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.campo-senha .toggle-senha:hover {
+    background: transparent;
+    color: #AF7864;
+    transform: translateY(-50%);
+}
+
+
+/* ESCONDE O OLHO NATIVO DO NAVEGADOR */
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-password-reveal-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+
+/* ========================================
+   AJUDA PARA CONTA INATIVA
+======================================== */
+
+.ajuda-conta-inativa {
+    width: 100%;
+    max-width: 390px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+.ajuda-conta-inativa p {
+    margin: 0 0 6px;
+    color: #474E3A;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.ajuda-conta-inativa > span {
+    display: block;
+    color: #817970;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.ajuda-contatos {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    margin-top: 13px;
+}
+
+.ajuda-contatos a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: #AF7864;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.ajuda-contatos a:hover {
+    color: #474E3A;
+    text-decoration: underline;
+}
+
+.ajuda-contatos i {
+    font-size: 17px;
+}

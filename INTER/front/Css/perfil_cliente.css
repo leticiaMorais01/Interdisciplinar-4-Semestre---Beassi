@@ -1,0 +1,419 @@
+
+/* ========================================
+   PÁGINAS DE PERFIL - BEASSI
+======================================== */
+
+
+/* CABEÇALHO */
+
+.perfil-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.perfil-header img {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+}
+
+.perfil-header nav {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.perfil-header nav a {
+    color: #EAE5DF;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+/* CONTEÚDO PRINCIPAL */
+
+.perfil-main {
+    width: min(850px, 92%);
+    margin: 0 auto;
+    padding: 42px 0 75px;
+}
+
+.perfil-voltar {
+    display: inline-flex;
+    gap: 9px;
+    align-items: center;
+    margin-bottom: 28px;
+    color: #474E3A;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.perfil-voltar:hover {
+    color: #AF7864;
+}
+
+
+/* TÍTULO DA PÁGINA */
+
+.perfil-intro {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.perfil-intro > span {
+    color: #AF7864;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.perfil-intro h1 {
+    margin: 12px 0;
+    color: #474E3A;
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 500;
+}
+
+.perfil-intro p {
+    color: #625b55;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* CARTÃO DE PERFIL */
+
+.perfil-card,
+.perfil-form {
+    padding: 25px;
+    border: 1px solid #e7ded7;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.perfil-card-topo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.perfil-avatar {
+    display: grid;
+    width: 58px;
+    height: 58px;
+    place-items: center;
+    border-radius: 50%;
+    background: #f4f0eb;
+    color: #474E3A;
+    font-size: 23px;
+}
+
+.perfil-legenda {
+    color: #AF7864;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.perfil-card h2 {
+    margin: 5px 0;
+    color: #474E3A;
+    font-size: 19px;
+}
+
+.perfil-status {
+    color: #52694c;
+    font-size: 11px;
+}
+
+.perfil-status.inativo {
+    color: #925B4B;
+}
+
+.perfil-botao-principal {
+    margin-left: auto;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: #474E3A;
+    color: #fff;
+    text-decoration: none;
+    font-size: 11px;
+}
+
+
+/* DADOS CADASTRAIS */
+
+.perfil-dados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    margin-top: 25px;
+    padding-top: 22px;
+    border-top: 1px solid #eee7e1;
+}
+
+.perfil-dados span,
+.perfil-dados strong {
+    display: block;
+}
+
+.perfil-dados span {
+    margin-bottom: 6px;
+    color: #92877e;
+    font-size: 10px;
+}
+
+.perfil-dados strong {
+    color: #474E3A;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* PROJETOS VINCULADOS */
+
+.perfil-projetos {
+    margin-top: 32px;
+}
+
+.perfil-projetos h2 {
+    margin-bottom: 15px;
+    color: #474E3A;
+    font-size: 19px;
+}
+
+.perfil-projeto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 17px 18px;
+    border: 1px solid #e7ded7;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.perfil-projeto-item + .perfil-projeto-item {
+    margin-top: 10px;
+}
+
+.perfil-projeto-item strong,
+.perfil-projeto-item span {
+    display: block;
+}
+
+.perfil-projeto-item strong {
+    color: #474E3A;
+    font-size: 12px;
+}
+
+.perfil-projeto-item span {
+    margin-top: 5px;
+    color: #817970;
+    font-size: 10px;
+}
+
+.perfil-projeto-item a {
+    color: #474E3A;
+    font-size: 10px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+
+/* AVISO INFORMATIVO */
+
+.perfil-aviso {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 15px 17px;
+    border-left: 3px solid #AF7864;
+    background: #f4f0eb;
+    color: #625b55;
+}
+
+.perfil-aviso i {
+    color: #AF7864;
+    margin-top: 3px;
+}
+
+.perfil-aviso p {
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+
+/* FORMULÁRIO DE PERFIL */
+
+.perfil-form {
+    display: grid;
+    gap: 18px;
+}
+
+.perfil-form > label {
+    display: grid;
+    gap: 8px;
+    color: #474E3A;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.perfil-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 13px;
+    border: 1px solid #d5c8bd;
+    border-radius: 6px;
+    background: #fff;
+    color: #474E3A;
+    font: inherit;
+    font-size: 12px;
+}
+
+.perfil-form input:focus {
+    outline: 2px solid #AF7864;
+    outline-offset: 2px;
+}
+
+.perfil-opcional {
+    color: #92877e;
+    font-size: 10px;
+    font-weight: 400;
+}
+
+
+/* SEPARADOR DE SEGURANÇA */
+
+.perfil-form-separador {
+    padding-top: 10px;
+    border-top: 1px solid #eee7e1;
+}
+
+.perfil-form-separador h2 {
+    color: #474E3A;
+    font-size: 15px;
+}
+
+.perfil-form-separador p {
+    margin: 8px 0;
+    color: #625b55;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.perfil-form-separador a {
+    color: #474E3A;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* BOTÕES DO FORMULÁRIO */
+
+.perfil-form-acoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+}
+
+.perfil-form-acoes a {
+    color: #625b55;
+    font-size: 11px;
+    text-decoration: none;
+}
+
+.perfil-form-acoes button {
+    padding: 12px 18px;
+    border: 0;
+    border-radius: 6px;
+    background: #474E3A;
+    color: #fff;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.perfil-form-aviso {
+    padding: 12px;
+    background: #f4f0eb;
+    color: #625b55;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* DESATIVAÇÃO E REATIVAÇÃO DE CLIENTES */
+
+.perfil-botao-status {
+    padding: 10px 14px;
+    border: 1px solid #AF7864;
+    border-radius: 6px;
+    background: transparent;
+    color: #925B4B;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.perfil-botao-status:hover {
+    background: #f4f0eb;
+}
+
+.perfil-botao-status.reativar {
+    border-color: #52694c;
+    color: #52694c;
+}
+
+.perfil-botao-status.reativar:hover {
+    background: #edf2eb;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 650px) {
+
+    .perfil-header {
+        flex-direction: column;
+    }
+
+    .perfil-header img {
+        width: 170px;
+    }
+
+    .perfil-header nav {
+        justify-content: center;
+    }
+
+    .perfil-dados {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-botao-principal {
+        margin-left: 0;
+    }
+
+    .perfil-projeto-item {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .perfil-form-acoes {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .perfil-form-acoes > * {
+        text-align: center;
+    }
+}

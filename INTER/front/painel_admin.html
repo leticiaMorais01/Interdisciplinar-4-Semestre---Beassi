@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Administrativo | BEASSI Arquitetura</title>
+
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/painel_admin.css?v=2">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="admin-header">
+
+        <a href="index.html" aria-label="Voltar ao site BEASSI">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+
+        <nav aria-label="Navegação administrativa">
+            <a href="index.html">VISUALIZAR SITE</a>
+            <a href="login.html" class="admin-sair">SAIR</a>
+        </nav>
+
+    </header>
+
+    <main class="admin-main" id="conteudo-principal">
+
+        <!-- APRESENTAÇÃO -->
+        <div class="admin-apresentacao">
+
+            <span class="admin-identificacao">ÁREA ADMINISTRATIVA</span>
+
+            <h1>Painel administrativo</h1>
+
+            <p>
+                Gerencie os conteúdos e acompanhe as atividades
+                da BEASSI Arquitetura.
+            </p>
+
+        </div>
+
+        <!-- =====================================
+             GERENCIAMENTO
+        ====================================== -->
+
+        <section class="admin-secao" aria-labelledby="gerenciar-titulo">
+
+            <h2 id="gerenciar-titulo">Gerenciamento</h2>
+
+            <div class="admin-grid">
+
+                <!-- EDITAR PERFIL -->
+                <a class="admin-card" href="editar_perfil_admin.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Editar meu perfil</strong>
+                        <span>
+                            Atualize o e-mail e o registro CAU do administrador.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+                <!-- PROJETOS CADASTRADOS -->
+                <a class="admin-card" href="gerenciar_projetos.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Projetos cadastrados</strong>
+                        <span>
+                            Pesquise, edite e exclua projetos do catálogo.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+                <!-- CADASTRAR PROJETO -->
+                <a class="admin-card" href="cadastrar_projeto.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Cadastrar projeto</strong>
+                        <span>
+                            Adicione um novo projeto ao catálogo.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+                <!-- FEEDBACKS -->
+                <a class="admin-card" href="gerenciar_feedbacks.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-comments" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Feedbacks dos clientes</strong>
+                        <span>
+                            Consulte as avaliações e analise quais poderão aparecer no site.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+                <!-- CLIENTES -->
+                <a class="admin-card" href="gerenciar_clientes.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-users" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Clientes cadastrados</strong>
+                        <span>
+                            Consulte os clientes e seus projetos vinculados.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+                <!-- RELATÓRIOS -->
+                <a class="admin-card" href="relatorios.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-chart-column" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Relatórios gerenciais</strong>
+                        <span>
+                            Acompanhe informações consolidadas sobre projetos,
+                            clientes e feedbacks.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             CONFIGURAÇÕES DO PORTFÓLIO
+        ====================================== -->
+
+        <section class="admin-secao" aria-labelledby="configuracoes-titulo">
+
+            <h2 id="configuracoes-titulo">Configurações do portfólio</h2>
+
+            <div class="admin-grid">
+
+                <!-- GERENCIAR CATEGORIAS -->
+                <a class="admin-card" href="gerenciar_categorias.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-tags" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Gerenciar categorias</strong>
+                        <span>
+                            Cadastre, edite, desative e reative as categorias
+                            utilizadas na classificação dos projetos.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+                <!-- GERENCIAR TIPOS DE PROJETO -->
+                <a class="admin-card" href="gerenciar_tipos_projeto.html">
+
+                    <span class="admin-icone">
+                        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                    </span>
+
+                    <span class="admin-card-conteudo">
+                        <strong>Gerenciar tipos de projeto</strong>
+                        <span>
+                            Organize os tipos de projetos residenciais
+                            e comerciais.
+                        </span>
+                    </span>
+
+                    <i class="fa-solid fa-arrow-right admin-seta" aria-hidden="true"></i>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- VOLTAR AO SITE -->
+        <a href="index.html" class="admin-voltar">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+            Voltar ao site
+        </a>
+
+    </main>
+
+    <!-- SCRIPTS -->
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" /> <!--ICONES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> <!--IMPORTA FONTES EXTERNAS-->
+  <link rel="stylesheet" href="Css/style.css"> <!--IMPORTA O CSS-->
+
+  <link href="Imagens/mini_logo_verde.png" class="icon" rel="icon">
+
+  <title>Beassi Arquitetura</title>
+   
+  
+  
+</head>
+<body>
+  <main id="conteudo-principal">
+  <header> 
+    <div><a href="index.html"><img src="Imagens/logo_bege.png" alt="logo"></a></div>
+    
+    <nav> <!--MENU DE NAVEGAÇÃO DO SITE (LINKS)-->
+      <a href="#quemsomos">INSTITUCIONAL</a>
+      
+      <a href="projetos.html">PROJETOS</a>
+      
+      <a href="#contato">CONTATO</a>
+
+      <!-- ACESSO CONFORME O PERFIL DO USUÁRIO -->
+      <a href="login.html" id="link-area-usuario" hidden>
+          ÁREA DO CLIENTE
+      </a>
+
+      <a href="login.html" class="btn-login" id="link-login">
+          LOGIN
+      </a>
+
+      <a href="login.html" class="btn-sair" id="link-sair" hidden>
+          SAIR
+      </a>
+
+      
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1><img src="Imagens/logo_verde.png" alt="titulo-principal"></h1>
+    <p class="descricao">Sou uma arquiteta dedicada a criar projetos que unem funcionalidade, estética e identidade. Acredito que cada espaço deve refletir a personalidade de quem o vivencia, por meio de soluções criativas, sustentáveis e cuidadosamente planejadas.
+
+Atuo em projetos residenciais, comerciais e corporativos, com o propósito de transformar ideias em ambientes únicos, acolhedores e cheios de significado.
+</p>
+
+    <h3>RESIDENCIAIS</h3>
+    <div class="projetos" data-projetos-home="RESIDENCIAL"><p>Carregando projetos residenciais...</p></div>
+    <div class="ver-mais"><a href="projetos.html">VER MAIS &rarr;</a></div>
+
+   <h3>COMERCIAIS</h3>
+    <div class="projetos" data-projetos-home="COMERCIAL"><p>Carregando projetos comerciais...</p></div>
+    <div class="ver-mais"><a href="projetos.html">VER MAIS &rarr;</a></div>
+
+    <section class="meus-projetos" id="meusprojetos" aria-labelledby="area-cliente-titulo">
+      <div class="secao-titulo" id="area-cliente-titulo">ACOMPANHE SEU PROJETO</div>
+      <p class="institucional-intro">É cliente BEASSI? Acesse sua área exclusiva para acompanhar as informações e a evolução do seu projeto.</p>
+      <div class="ver-mais"><a href="login.html">ACESSAR MINHA CONTA &rarr;</a></div>
+    </section>
+
+  </div> <!-- FIM CONTAINER -->
+
+  <div class="quem-somos" id="quemsomos">
+      <img class="imagem-lateral" src="Imagens/imagem_quem_sou.jpeg" alt="Foto da equipe">
+        <div class="conteudo-central">
+            <div class="secao-titulo">BEATRIZ ASSIS</div>
+      
+            <p>Sou uma arquiteta que acredita no poder transformador dos espaços. Uno paixão, técnica e criatividade para desenvolver projetos que vão além da estética — entregando soluções funcionais, personalizadas e alinhadas aos desejos e às necessidades de cada cliente.
+
+Com um atendimento humanizado, busco inovação, sustentabilidade e sensibilidade em cada etapa do processo, desde o estudo preliminar até a finalização dos ambientes.
+
+Atuo em diferentes tipos de projetos, como residenciais, comerciais, corporativos e de interiores, sempre com foco na excelência e no cuidado com os detalhes.
+</p>
+        
+        </div>
+      
+  </div>
+
+  <section class="institucional-bloco" aria-labelledby="pilares-titulo">
+    <div class="secao-titulo" id="pilares-titulo">NOSSA ESSÊNCIA</div>
+    <p class="institucional-intro">Cada projeto nasce da escuta, do planejamento e do cuidado com as pessoas que vão viver os espaços.</p>
+    <div class="pilares-grid">
+      <article class="pilar-card"><h3>Missão</h3><p>Transformar necessidades e ideias em ambientes funcionais, acolhedores e personalizados.</p></article>
+      <article class="pilar-card"><h3>Visão</h3><p>Construir uma trajetória reconhecida pela qualidade, criatividade e confiança em cada projeto.</p></article>
+      <article class="pilar-card"><h3>Valores</h3><p>Ética, responsabilidade, sustentabilidade, transparência e atenção aos detalhes.</p></article>
+    </div>
+  </section>
+
+  <section class="institucional-bloco" aria-labelledby="servicos-titulo">
+    <div class="secao-titulo" id="servicos-titulo">O QUE FAZEMOS</div>
+    <div class="servicos-grid">
+      <article class="servico-card"><h3>Projetos residenciais</h3><p>Planejamento de espaços para morar, com soluções alinhadas à rotina e à identidade de cada cliente.</p></article>
+      <article class="servico-card"><h3>Projetos comerciais</h3><p>Ambientes que valorizam a marca, a experiência das pessoas e as necessidades de cada negócio.</p></article>
+      <article class="servico-card"><h3>Interiores e reformas</h3><p>Otimização e renovação de ambientes, unindo estética, conforto e funcionalidade.</p></article>
+    </div>
+  </section>
+
+
+<!-- SEÇÃO DE FEEDBACKS DOS CLIENTES -->
+
+  <section class="feedback-section" id="feedbacks">
+
+      <div class="secao-titulo">
+          O QUE NOSSOS CLIENTES DIZEM
+      </div>
+
+      <p class="feedback-intro">
+          A satisfação dos nossos clientes é parte essencial
+          de cada projeto que desenvolvemos.
+      </p>
+
+      <div class="feedback-lista" id="listaFeedbacks">
+
+          <!--
+          Os feedbacks aprovados pelo administrador
+          serão carregados aqui pelo Back-End.
+          -->
+
+          <p class="feedback-vazio" id="feedbackVazio">
+              Em breve, compartilharemos as experiências
+              dos nossos clientes.
+          </p>
+
+      </div>
+
+  </section>
+
+
+  <section class="faq-section" aria-labelledby="faq-titulo">
+    <div class="secao-titulo" id="faq-titulo">DÚVIDAS FREQUENTES</div>
+    <details><summary>Como posso solicitar um orçamento?</summary><p>Entre em contato pelo formulário, WhatsApp ou e-mail. Conte um pouco sobre sua ideia para que possamos orientar os próximos passos.</p></details>
+    <details><summary>Quais tipos de projetos são realizados?</summary><p>A BEASSI apresenta projetos residenciais, comerciais, corporativos, de interiores e reformas.</p></details>
+    <details><summary>Como acompanho meu projeto?</summary><p>Clientes cadastrados podem acessar a área do cliente pelo menu do site. As funcionalidades de acompanhamento serão disponibilizadas conforme a integração do sistema.</p></details>
+  </section>
+
+  <div class="formulario" id="contato">
+    <div class="secao-titulo">FORMULÁRIO DE CONTATO</div>
+    <form data-contato-form>
+      <input type="text" name="nome" placeholder="Nome completo" autocomplete="name" required minlength="3" aria-label="Nome completo">
+      <input type="email" name="email" placeholder="E-mail" autocomplete="email" required aria-label="E-mail">
+      <input type="tel" name="telefone" placeholder="Celular (opcional)" autocomplete="tel" aria-label="Celular" maxlength="15" inputmode="tel">      <textarea name="mensagem" placeholder="Conte um pouco sobre o que você precisa" rows="4" required minlength="10" aria-label="Mensagem"></textarea>
+      <button type="submit">ENVIAR</button>
+      <p class="form-feedback" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <!--BOTÃO DO WHATSAPP NA TELA-->
+  <a class="whatsapp-link" href="https://wa.me/5517996609696?text=Ol%C3%A1%2C%20gostaria%20de%20realizar%20um%20or%C3%A7amento" target="_blank"> 
+      <i class="fab fa-whatsapp oi"></i>
+  </a>
+
+
+  <!--RODAPÉ-->
+  <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  </main>
+  <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerenciar Categorias | BEASSI Arquitetura</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/gerenciar_categorias.css">
+</head>
+
+<body>
+
+    <header class="categoria-header">
+
+        <a href="index.html" class="categoria-logo">
+            BEASSI ARQUITETURA
+        </a>
+
+        <nav class="categoria-nav">
+
+            <a href="painel_admin.html">
+                PAINEL ADMINISTRATIVO
+            </a>
+
+            <a href="#" id="btnSair">
+                SAIR
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main class="categoria-main">
+
+        <section class="categoria-intro">
+            <span class="categoria-subtitulo">CONFIGURAÇÕES DO PORTFÓLIO</span>
+            <h1>Gerenciar categorias</h1>
+            <p>
+                Cadastre, edite e organize as categorias utilizadas
+                na classificação dos projetos.
+            </p>
+        </section>
+
+        <!-- RESUMO -->
+        <section class="categoria-resumo">
+
+            <article class="resumo-card">
+                <span>Total de categorias</span>
+                <strong id="totalCategorias">0</strong>
+            </article>
+
+            <article class="resumo-card">
+                <span>Categorias ativas</span>
+                <strong id="totalAtivas">0</strong>
+            </article>
+
+            <article class="resumo-card">
+                <span>Categorias inativas</span>
+                <strong id="totalInativas">0</strong>
+            </article>
+
+        </section>
+
+        <!-- CADASTRO -->
+        <section class="categoria-form-card">
+
+            <div class="secao-titulo">
+                <div>
+                    <h2 id="tituloFormulario">Nova categoria</h2>
+                    <p>Informe o nome da categoria que deseja cadastrar.</p>
+                </div>
+            </div>
+
+            <form id="formCategoria">
+
+                <input type="hidden" id="idCategoria">
+
+                <div class="campo-categoria">
+                    <label for="nomeCategoria">Nome da categoria</label>
+
+                    <input
+                        type="text"
+                        id="nomeCategoria"
+                        maxlength="50"
+                        placeholder="Ex.: Projeto arquitetônico"
+                        required
+                    >
+                </div>
+
+                <div class="categoria-form-acoes">
+
+                    <button type="submit" class="btn-salvar" id="btnSalvar">
+                        <i class="fa-solid fa-plus"></i>
+                        Cadastrar categoria
+                    </button>
+
+                    <button type="button" class="btn-cancelar" id="btnCancelar" hidden>
+                        Cancelar edição
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- LISTAGEM -->
+        <section class="categoria-lista-card">
+
+            <div class="categoria-lista-topo">
+                <div>
+                    <h2>Categorias cadastradas</h2>
+                    <p>Gerencie as categorias disponíveis no sistema.</p>
+                </div>
+
+                <button type="button" id="btnAtualizar" class="btn-atualizar">
+                    <i class="fa-solid fa-rotate"></i>
+                    Atualizar
+                </button>
+            </div>
+
+            <div class="categoria-filtros">
+                <label for="filtroCategoria">Exibir:</label>
+
+                <select id="filtroCategoria">
+                    <option value="todas">Todas</option>
+                    <option value="ativas">Ativas</option>
+                    <option value="inativas">Inativas</option>
+                </select>
+            </div>
+
+            <div id="listaCategorias" class="lista-categorias">
+                <p class="estado-lista">Carregando categorias...</p>
+            </div>
+
+            <p id="categoriaVazio" class="estado-lista" hidden>
+                Nenhuma categoria encontrada.
+            </p>
+
+        </section>
+
+    </main>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/gerenciar_categorias.js"></script>
+    <script src="Js/script.js"></script>
+
+</body>
+</html>

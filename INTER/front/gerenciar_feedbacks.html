@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar feedbacks | BEASSI Arquitetura</title>
+    <link rel="icon" href="Imagens/mini_logo_verde.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="Css/style.css">
+    <link rel="stylesheet" href="Css/gerenciar_feedbacks.css">
+</head>
+<body>
+    <header class="feedback-admin-header">
+        <a href="index.html" aria-label="Voltar ao site BEASSI">
+            <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+        </a>
+        <nav aria-label="Navegação administrativa">
+            <a href="painel_admin.html">PAINEL ADMINISTRATIVO</a>
+            <a href="login.html">SAIR</a>
+        </nav>
+    </header>
+
+    <main class="feedback-admin-main" id="conteudo-principal">
+        <a class="feedback-admin-voltar" href="painel_admin.html">
+            <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao painel
+        </a>
+
+        <section class="feedback-admin-intro">
+            <span>ÁREA ADMINISTRATIVA</span>
+            <h1>Feedbacks dos clientes</h1>
+            <p>Analise as avaliações recebidas antes de permitir que sejam exibidas no site.</p>
+        </section>
+
+        <section class="feedback-admin-resumo" aria-label="Resumo dos feedbacks">
+            <div><strong id="totalPendentes">1</strong><span>Pendentes</span></div>
+            <div><strong id="totalAprovados">1</strong><span>Aprovados</span></div>
+            <div><strong id="totalRejeitados">0</strong><span>Rejeitados</span></div>
+        </section>
+
+        <section class="feedback-admin-lista" aria-labelledby="titulo-lista-feedbacks">
+            <div class="feedback-admin-cabecalho">
+                <h2 id="titulo-lista-feedbacks">Avaliações recebidas</h2>
+                <label class="feedback-admin-filtro">
+                    <span class="sr-only">Filtrar feedbacks por situação</span>
+                    <select id="filtroStatus">
+                        <option value="todos">Todos os feedbacks</option>
+                        <option value="pendente">Pendentes</option>
+                        <option value="aprovado">Aprovados</option>
+                        <option value="rejeitado">Rejeitados</option>
+                    </select>
+                </label>
+            </div>
+
+            <div id="listaFeedbacksAdmin" class="feedback-admin-itens"><p>Carregando avaliações...</p></div>
+
+            <div class="feedback-admin-vazio" id="feedbackAdminVazio" hidden>
+                Nenhum feedback encontrado para este filtro.
+            </div>
+        </section>
+
+           </main>
+
+    <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+    <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/gerenciar_feedbacks.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>

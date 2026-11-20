@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar nova senha | BEASSI Arquitetura</title>
+  <link rel="icon" href="Imagens/mini_logo_verde.png">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">  <link rel="stylesheet" href="Css/login.css">
+  <link rel="stylesheet" href="Css/recuperacao_senha.css">
+</head>
+<body>
+  <main class="recuperacao-card">
+    <a href="login.html" class="recuperacao-voltar"><i class="fa-solid fa-arrow-left"></i> Voltar ao login</a>
+    <img src="Imagens/logo_verde.png" alt="BEASSI Arquitetura" class="recuperacao-logo">
+    <span class="recuperacao-etiqueta">SEGURANÇA DA CONTA</span>
+    <h1>Crie uma nova senha</h1>
+    <p>Escolha uma senha segura para voltar a acessar sua conta.</p>
+    <form id="formNovaSenha">
+      <label for="novaSenha">Nova senha</label>
+      <input id="novaSenha" name="senha" type="password" autocomplete="new-password" minlength="8" required>
+      <label for="confirmarSenha">Confirme a nova senha</label>
+      <input id="confirmarSenha" name="confirmarSenha" type="password" autocomplete="new-password" minlength="8" required>
+      <button type="submit">REDEFINIR SENHA</button>
+    </form>
+    <p id="mensagemNovaSenha" class="mensagem-recuperacao" role="status" aria-live="polite"></p>
+  </main>
+  <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/recuperacao_senha.js"></script>
+  <script src="Js/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="Css/login.css" />
+  <link href="Imagens/mini_logo_verde.png" rel="icon">
+
+  <title>Login</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- LOGIN -->
+    <div class="login-box">
+
+      <div class="form-section">
+
+        <a href="index.html" class="logo-home" aria-label="Ir para a página inicial da BEASSI"><img src="Imagens/logo_verde.png" alt="BEASSI Arquitetura - página inicial" class="logo-login"></a>
+
+        <h2>Entrar</h2>
+
+        <form action="#" method="POST" data-login>
+
+          <label class="sr-only" for="emailLogin">E-mail</label>
+          <input id="emailLogin" type="email" name="email" placeholder="Seu e-mail" autocomplete="email" required />
+
+          <label class="sr-only" for="senhaLogin">Senha</label>
+
+            <div class="campo-senha">
+                <input
+                    id="senhaLogin"
+                    type="password"
+                    name="senha"
+                    placeholder="Sua senha"
+                    autocomplete="current-password"
+                    required
+                    minlength="6"
+                >
+
+                <button
+                    type="button"
+                    class="toggle-senha"
+                    data-toggle-senha
+                    aria-label="Mostrar senha"
+                    aria-pressed="false"
+                >
+                    <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                </button>
+            </div>
+
+          <a href="recuperar_senha.html" class="esqueceu">Esqueceu a senha?</a>
+
+          <button type="submit">ENTRAR</button>
+
+        </form>
+
+        <a href="index.html" class="btn-voltar-inicio">
+            <i class="fa-solid fa-arrow-left"></i>
+            VOLTAR À PÁGINA INICIAL
+        </a>
+
+
+    <div class="ajuda-conta-inativa">
+        <p>Sua conta está inativa?</p>
+
+        <span>
+            Entre em contato com o administrador para solicitar a reativação.
+        </span>
+
+        <div class="ajuda-contatos">
+            <a
+                href="https://wa.me/5517996609696"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrar em contato pelo WhatsApp"
+            >
+                <i class="fa-brands fa-whatsapp"></i>
+                WhatsApp
+            </a>
+
+            <a
+                href="https://instagram.com/beassi.arq"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Entrar em contato pelo Instagram"
+            >
+                <i class="fa-brands fa-instagram"></i>
+                Instagram
+            </a>
+        </div>
+    </div>
+
+
+      </div>
+
+      <!-- LADO DIREITO -->
+      <div class="welcome-section">
+
+        <div class="overlay">
+
+          <h1>Olá!</h1>
+
+          <p>
+            Ainda não possui uma conta?<br>
+            Cadastre-se para acompanhar seus projetos.
+          </p>
+
+          <a href="cadastro_usuario.html" class="btn-cadastro">
+            CADASTRAR
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>

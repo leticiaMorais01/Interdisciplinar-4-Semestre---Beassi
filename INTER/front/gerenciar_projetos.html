@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciar projetos | BEASSI Arquitetura</title>
+  <link rel="icon" href="Imagens/mini_logo_verde.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="Css/style.css">
+  <link rel="stylesheet" href="Css/gerenciar_projetos.css">
+</head>
+<body>
+  <header class="admin-header">
+    <a href="painel_admin.html" aria-label="Voltar ao painel administrativo">
+      <img src="Imagens/logo_bege.png" alt="BEASSI Arquitetura">
+    </a>
+    <nav aria-label="Navegação administrativa">
+      <a href="painel_admin.html">PAINEL</a>
+      <a href="index.html">VISUALIZAR SITE</a>
+      <a href="login.html" class="admin-sair">SAIR</a>
+    </nav>
+  </header>
+
+  <main class="gerenciar-main" id="conteudo-principal">
+    <a class="gerenciar-voltar" href="painel_admin.html"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Voltar ao painel</a>
+
+    <section class="gerenciar-intro">
+      <span>ÁREA ADMINISTRATIVA</span>
+      <h1>Gerenciar projetos</h1>
+      <p>Consulte os projetos do catálogo e acesse as opções de edição.</p>
+    </section>
+
+    <div class="gerenciar-acoes-topo">
+      <div class="gerenciar-filtros">
+        <label class="sr-only" for="buscaAdminProjetos">Buscar projeto</label>
+        <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        <input type="search" id="buscaAdminProjetos" placeholder="Buscar projeto pelo nome...">
+        <label class="sr-only" for="tipoAdminProjetos">Filtrar por tipo</label>
+
+        <select id="tipoAdminProjetos">
+            <option value="todos">Todos os tipos</option>
+            <option value="residencial">Residencial</option>
+            <option value="comercial">Comercial</option>
+        </select>
+
+        <label class="sr-only" for="statusPublicacaoAdmin">
+            Filtrar por publicação
+        </label>
+
+        <select id="statusPublicacaoAdmin">
+            <option value="todos">Todos os projetos</option>
+            <option value="publicos">Públicos</option>
+            <option value="nao-publicos">Não públicos</option>
+        </select>
+
+      </div>
+      <a class="gerenciar-novo" href="cadastrar_projeto.html"><i class="fa-solid fa-plus" aria-hidden="true"></i> Cadastrar projeto</a>
+    </div>
+
+
+    <section class="lista-admin-projetos" aria-label="Projetos do catálogo" id="listaAdminProjetos"><p>Carregando projetos cadastrados...</p></section>
+    <p class="admin-sem-resultados" id="semProjetosAdmin" hidden>Nenhum projeto encontrado com esses filtros.</p>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+    
+    <div class="footer-cards">
+      <a href="https://www.instagram.com/beassi.arq" target="_blank" class="contact-card">
+        <i class="fab fa-instagram"></i>
+        <span>@beassi.arq</span>
+      </a>
+      <a href="mailto:beassiarquitetura@gmail.com" class="contact-card">
+        <i class="fa-solid fa-envelope"></i>
+        <span>beassiarquitetura@gmail.com</span>
+      </a>
+      <a href="https://wa.me/5517996609696" target="_blank" class="contact-card">
+        <i class="fab fa-whatsapp"></i>
+        <span>(17) 99660-9696 </span>
+      </a>
+    </div>
+    <p class="copyright">© 2026 BEASSI Arquitetura. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  
+  <script src="Js/api.js"></script>
+    <script src="Js/integracao_dinamica.js"></script>
+    <script src="Js/script.js"></script>
+</body>
+</html>

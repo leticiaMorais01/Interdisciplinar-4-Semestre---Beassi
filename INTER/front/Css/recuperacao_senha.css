@@ -1,0 +1,21 @@
+.recuperacao-card {
+  width: min(100% - 32px, 520px);
+  margin: 32px auto;
+  padding: clamp(26px, 5vw, 48px);
+  border-radius: 20px;
+  background: #F7F4F0;
+  box-shadow: 0 18px 50px rgba(35,39,29,.18);
+  color: #474E3A;
+}
+.recuperacao-voltar { display:inline-block; margin-bottom:28px; color:#474E3A; text-decoration:none; font-size:12px; }
+.recuperacao-logo { display:block; width:min(190px,70%); height:auto; margin:0 auto 24px; }
+.recuperacao-etiqueta { display:block; color:#AF7864; text-align:center; font-size:10px; font-weight:700; letter-spacing:2px; }
+.recuperacao-card h1 { margin:12px 0; text-align:center; color:#474E3A; font-size:clamp(25px,4vw,32px); font-weight:500; }
+.recuperacao-card > p { color:#625b55; font-size:13px; line-height:1.8; text-align:center; }
+.recuperacao-card form { display:grid; gap:10px; margin-top:26px; }
+.recuperacao-card label { color:#474E3A; font-size:12px; font-weight:600; }
+.recuperacao-card input { width:100%; min-height:48px; padding:12px 14px; border:1px solid #cdb6aa; border-radius:8px; background:#fff; color:#474E3A; font:inherit; }
+.recuperacao-card button { min-height:48px; margin-top:10px; padding:12px 16px; border:0; border-radius:8px; background:#474E3A; color:#fff; font:inherit; font-size:12px; font-weight:700; letter-spacing:.6px; cursor:pointer; }
+.recuperacao-card button:hover { background:#AF7864; }
+.recuperacao-card .mensagem-recuperacao { min-height:24px; margin-top:18px; padding:10px; border-radius:7px; background:#f0e9e2; color:#474E3A; font-size:11px; }
+@media(max-width:520px) { .recuperacao-card { padding:24px 20px; } }

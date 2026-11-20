@@ -1,0 +1,471 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Montserrat", sans-serif;
+
+    background:
+    linear-gradient(
+        135deg,
+        #BBA89A,
+        #BBA89A
+    );
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* CONTAINER */
+
+.container{
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BOX */
+
+.cadastro-box{
+    width: 100%;
+    max-width: 980px;
+    min-height: 620px;
+
+    background-color: #EAE5DF;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.25);
+}
+
+/* LADO ESQUERDO */
+
+.welcome-section{
+    width: 45%;
+
+    background:
+    linear-gradient(
+        135deg,
+        #AF7864,
+        #A17C6B
+    );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius:
+    0 120px 120px 0;
+}
+
+.overlay{
+    width: 75%;
+
+    text-align: center;
+
+    color: white;
+}
+
+.overlay h1{
+    font-size: 52px;
+
+    margin-bottom: 25px;
+}
+
+.overlay p{
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    margin-bottom: 40px;
+}
+
+.btn-login{
+    display: inline-block;
+
+    padding:
+    14px 40px;
+
+    border: 1px solid white;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    color: white;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    transition: 0.3s;
+}
+
+.btn-login:hover{
+    background-color: white;
+    color: #AF7864;
+}
+
+/* FORMULARIO */
+
+.form-section{
+    width: 55%;
+
+    padding: 60px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: rgba(234,229,223,0.98);
+}
+
+.logo-cadastro{
+    width: 250px;
+
+    margin-bottom: 35px;
+}
+
+.form-section h2{
+    font-size: 38px;
+
+    color: #474E3A;
+
+    margin-bottom: 45px;
+
+    position: relative;
+}
+
+.form-section h2::after{
+    content: "";
+
+    width: 70px;
+    height: 3px;
+
+    background-color: #AF7864;
+
+    position: absolute;
+
+    left: 0;
+    bottom: -15px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+input{
+    padding: 15px;
+
+    border-radius: 12px;
+
+    border: 1px solid #cdb6aa;
+
+    background-color: transparent;
+
+    outline: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+input:focus{
+    border-color: #AF7864;
+
+    box-shadow:
+    0 0 0 3px rgba(175,120,100,0.15);
+}
+
+button{
+    margin-top: 10px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background-color: #AF7864;
+
+    color: white;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+button:hover{
+    background-color: #A17C6B;
+
+    transform: translateY(-2px);
+}
+
+/* RESPONSIVO */
+
+@media(max-width: 950px){
+
+    .cadastro-box{
+        flex-direction: column;
+        max-width: 550px;
+    }
+
+    .welcome-section,
+    .form-section{
+        width: 100%;
+    }
+
+    .welcome-section{
+        min-height: 300px;
+
+        border-radius:
+        0 0 80px 80px;
+    }
+
+    .form-section{
+        padding: 45px 35px;
+    }
+
+    .overlay h1{
+        font-size: 40px;
+    }
+}
+
+@media(max-width: 500px){
+
+    .logo-cadastro{
+        width: 180px;
+    }
+
+    .form-section h2{
+        font-size: 30px;
+    }
+
+    .overlay h1{
+        font-size: 32px;
+    }
+
+    .overlay p{
+        font-size: 14px;
+    }
+}
+
+/* ===== ACESSIBILIDADE FUNCIONAL - BEASSI ===== */
+.skip-link {
+  position: fixed !important; top: -100px !important; left: 16px !important;
+  z-index: 100000 !important; padding: 12px 16px !important;
+  border-radius: 8px !important; background: #474E3A !important; color: #fff !important;
+}
+.skip-link:focus { top: 12px !important; }
+.accessibility-toggle {
+  position: fixed !important; right: 22px !important; bottom: 22px !important;
+  z-index: 99999 !important; display: grid !important; place-items: center !important;
+  width: 54px !important; height: 54px !important; min-height: 54px !important;
+  margin: 0 !important; padding: 0 !important; border: 0 !important; border-radius: 50% !important;
+  background: #474E3A !important; color: #fff !important; font-size: 23px !important;
+  cursor: pointer !important; box-shadow: 0 5px 18px #0003 !important;
+}
+.accessibility-toggle:hover { background: #AF7864 !important; }
+.accessibility-panel {
+  display: none !important; position: fixed !important; right: 22px !important; bottom: 88px !important;
+  z-index: 99998 !important; width: min(320px, calc(100vw - 32px)) !important;
+  max-height: calc(100vh - 112px) !important; overflow-y: auto !important;
+  flex-direction: column !important; align-items: stretch !important; gap: 10px !important;
+  padding: 20px !important; margin: 0 !important; border: 1px solid #ded5cd !important;
+  border-radius: 16px !important; background: #fff !important; color: #474E3A !important;
+  text-align: left !important; box-shadow: 0 12px 36px #0003 !important;
+  font-family: "Montserrat", sans-serif !important;
+}
+.accessibility-panel.aberto { display: flex !important; }
+.accessibility-panel h2 { margin: 0 0 4px !important; color: #474E3A !important; font-size: 19px !important; }
+.accessibility-panel p { margin: 0 0 6px !important; color: #625b55 !important; font-size: 12px !important; line-height: 1.5 !important; }
+.accessibility-panel button, .accessibility-panel select {
+  display: block !important; position: static !important; width: 100% !important; min-height: 42px !important;
+  margin: 0 !important; padding: 10px 12px !important; border: 1px solid #d5c8bd !important;
+  border-radius: 8px !important; background: #f7f4f1 !important; color: #474E3A !important;
+  font-family: "Montserrat", sans-serif !important; font-size: 12px !important; text-align: left !important;
+  cursor: pointer !important; transform: none !important;
+}
+.accessibility-panel button:hover { background: #eee5de !important; }
+.accessibility-panel .accessibility-close { background: #474E3A !important; color: #fff !important; text-align: center !important; }
+.accessibility-panel label { display: block !important; margin: 4px 0 0 !important; color: #474E3A !important; font-size: 12px !important; font-weight: 600 !important; }
+.accessibility-panel select { cursor: pointer !important; }
+.sr-only { position: absolute !important; width: 1px !important; height: 1px !important; padding: 0 !important; margin: -1px !important; overflow: hidden !important; clip: rect(0,0,0,0) !important; white-space: nowrap !important; border: 0 !important; }
+
+/* Alto contraste: aplica também aos elementos internos das páginas */
+body.alto-contraste { background: #000 !important; color: #fff !important; }
+body.alto-contraste .container,
+body.alto-contraste .cadastro-box,
+body.alto-contraste .login-box,
+body.alto-contraste .form-section,
+body.alto-contraste .welcome-section,
+body.alto-contraste .overlay,
+body.alto-contraste input,
+body.alto-contraste button:not(.accessibility-toggle),
+body.alto-contraste .accessibility-panel {
+  background: #000 !important; color: #fff !important; border-color: #ff0 !important;
+}
+body.alto-contraste h1, body.alto-contraste h2, body.alto-contraste p,
+body.alto-contraste label, body.alto-contraste a, body.alto-contraste input::placeholder {
+  color: #ff0 !important;
+}
+body.alto-contraste :focus-visible { outline: 3px solid #ff0 !important; outline-offset: 3px !important; }
+body.alto-contraste .accessibility-toggle { background: #ff0 !important; color: #000 !important; }
+
+/* Aumento de texto */
+body.fonte-aumentada p, body.fonte-aumentada a, body.fonte-aumentada label,
+body.fonte-aumentada input, body.fonte-aumentada button, body.fonte-aumentada h1,
+body.fonte-aumentada h2, body.fonte-aumentada span {
+  font-size: 1.15em !important;
+}
+
+/* Filtros demonstrativos de percepção de cores. Não substituem testes de acessibilidade. */
+body.filtro-protanopia > :not(.accessibility-toggle):not(.accessibility-panel):not(.skip-link):not(svg) { filter: url(#beassi-protanopia); }
+body.filtro-deuteranopia > :not(.accessibility-toggle):not(.accessibility-panel):not(.skip-link):not(svg) { filter: url(#beassi-deuteranopia); }
+body.filtro-tritanopia > :not(.accessibility-toggle):not(.accessibility-panel):not(.skip-link):not(svg) { filter: url(#beassi-tritanopia); }
+
+@media (max-width: 480px) {
+  .accessibility-toggle { right: 14px !important; bottom: 14px !important; }
+  .accessibility-panel { right: 14px !important; bottom: 78px !important; max-height: calc(100vh - 94px) !important; }
+}
+
+/* Logo clicável: retorna à página inicial */
+.logo-home { display: inline-block; width: fit-content; max-width: 100%; line-height: 0; text-decoration: none; }
+.logo-home:focus-visible { outline: 3px solid #AF7864; outline-offset: 5px; border-radius: 4px; }
+.logo-home img { display: block; cursor: pointer; }
+
+
+/* BOTÃO VOLTAR À PÁGINA INICIAL */
+
+.btn-voltar-inicio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    width: 100%;
+    padding: 13px;
+
+    margin-top: 12px;
+
+    border: 1px solid #AF7864;
+    border-radius: 10px;
+
+    color: #474E3A;
+    background: transparent;
+
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    transition: .2s;
+}
+
+.btn-voltar-inicio:hover {
+    background: #AF7864;
+    color: #FFFFFF;
+}
+
+/* CAMPO DE SENHA COM OLHINHO */
+
+.campo-senha {
+    position: relative;
+    width: 100%;
+}
+
+.campo-senha input {
+    width: 100%;
+    padding-right: 48px;
+}
+
+.campo-senha .toggle-senha {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+
+    width: 28px;
+    height: 28px;
+    min-height: 28px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+
+    background: transparent;
+    color: #474E3A;
+
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.campo-senha .toggle-senha:hover {
+    background: transparent;
+    color: #AF7864;
+    transform: translateY(-50%);
+}
+
+/* ESCONDE O OLHO NATIVO DO NAVEGADOR */
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear,
+input[type="password"]::-webkit-password-reveal-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+
+/* CAMPOS DO FORMULÁRIO */
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.campo-formulario label {
+    color: #474E3A;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.campo-formulario input {
+    width: 100%;
+}
+
+.campo-formulario .campo-senha {
+    width: 100%;
+}

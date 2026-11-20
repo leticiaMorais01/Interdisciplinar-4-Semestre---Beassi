@@ -1,0 +1,47 @@
+BEASSI ARQUITETURA — VERSÃO 10 | PREPARAÇÃO PARA INTEGRAÇÃO DINÂMICA
+
+O QUE FOI PREPARADO
+- Criada a camada central Js/api.js para chamadas HTTP ao Spring Boot.
+- Criado Js/integracao_dinamica.js para conectar formulários e telas aos endpoints REST definidos no documento INTEGRACAO_DINAMICA_E_CONTRATO_API.md.
+- Cadastro e edição de projetos: seleção dinâmica de clientes ativos, opção Nenhum cliente (clienteId = null), classificações residenciais/comerciais e categorias carregadas da API.
+- Cadastro e edição de projeto enviam cliente, tipo/classificação, categorias, etapa e imagem para a API.
+- Portfólio público, listagem administrativa de projetos, detalhe de projeto e área do cliente passam a carregar projetos pela API.
+- Gerenciamento de clientes, detalhes/edição do cliente e situação ativo/inativo passam a consultar/atualizar a API.
+- Formulários de login, cadastro, edição de perfil, feedback e recuperação de senha ligados aos endpoints definidos.
+- Moderação administrativa de feedbacks ligada à API; o site público solicita apenas feedbacks aprovados.
+- Removidos dados fictícios de várias listagens e a persistência de demonstração do progresso via localStorage.
+
+IMPORTANTE
+Este pacote contém o Front-End. O Back-End Spring Boot não estava incluído no ZIP recebido. Portanto, os endpoints descritos são o contrato esperado para integração, ainda precisam existir no Spring Boot e ser alinhados aos DTOs/Stored Procedures reais.
+
+CONFIGURAÇÃO
+Em Js/api.js, ajuste BEASSI_API_BASE_URL para a URL do Spring Boot. O padrão é http://localhost:8080/api.
+
+ANTES DO TESTE PONTA A PONTA
+1. Implementar os endpoints documentados.
+2. Configurar CORS e Spring Security para a origem do Front-End e cookies/sessão.
+3. Implementar autorização por perfil e validação de propriedade dos dados no servidor.
+4. Implementar BCrypt, e-mail e tokens de recuperação de uso único/expiração.
+5. Implementar upload seguro de imagens e persistência dos caminhos na tabela IMAGEM.
+6. Testar todos os fluxos com o SQL Server e os dados reais.
+
+Consulte INTEGRACAO_DINAMICA_E_CONTRATO_API.md para a lista de endpoints, DTOs esperados e regras de negócio.
+
+- Adicionada a opção "Relatórios gerenciais" ao painel administrativo.
+- Criada a página relatorios.html com três áreas: projetos, clientes e feedbacks.
+- Incluídos filtros opcionais por período e carregamento dinâmico dos resultados pela API.
+- Criados Css/relatorios.css e Js/relatorios.js.
+- Os endpoints /relatorios/projetos, /relatorios/clientes e /relatorios/feedbacks são provisórios e precisam ser alinhados ao Back-End após a conferência do banco.
+- Nenhum arquivo SQL ou estrutura do banco foi alterado.
+- Procedures e Functions serão acionadas pelo Back-End Java; o Front-End consome os resultados pela API.
+
+
+VERSÃO CORRIGIDA — INTEGRAÇÃO FRONT-END / SPRING BOOT
+- Rotas do JavaScript alinhadas aos controllers existentes: /Cliente, /Administrador, /categoria, /tipoResidencial, /tipoComercial, /projeto, /Feedback, /imagem e /projetoCategoria.
+- Cadastro/edição de projeto envia os nomes de propriedades da entidade, associa cliente, administrador e tipo, sincroniza categorias e envia imagem pelo endpoint multipart correto.
+- Edição de projeto carrega imagem e categorias pelas rotas próprias, e a substituição atualiza a imagem existente quando houver uma imagem cadastrada.
+- Criados GETs por ID para cliente e administrador; cliente pode consultar/editar apenas o próprio cadastro, enquanto o administrador pode consultar/editar clientes.
+- Listagens de projetos, clientes e feedbacks alinhadas aos retornos reais; portfólio público filtra projetos publicados e avaliações aprovadas.
+- Adicionada opção de publicar projeto no portfólio.
+- Pré-visualização de imagem limitada por CSS e rótulo do botão ajustado.
+- Arquivos JavaScript passaram por validação sintática com Node.js. A compilação Maven e o teste integrado com SQL Server não foram concluídos neste ambiente porque o Maven Wrapper precisou baixar uma distribuição e a conexão de rede não estava disponível. Execute o teste local com o banco e a aplicação em execução antes de publicar.
